@@ -5,7 +5,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
 		<title>Past Quizzes: Integrative Biology 200</title>
-		<link href="IB200Style_1.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
 		<style type="text/css">
 		
 </style>
@@ -13,7 +13,7 @@
 
 	<body>
 		<!-- Site Navigation Menu -->
-		<!--#include file="menu.htm"-->
+		<!--#include file="menu.html"-->
 		<!-- Body Text -->
 		<h1>Integrative Biology 200<br>
 			<small>Past Quizzes</small></h1>
@@ -47,7 +47,7 @@
        	
 		<!-- Signature -->
 		<address>
-		<!--#include file="signature.htm" -->
+		<!--#include file="signature.html" -->
 		</address>
 	</body>
 

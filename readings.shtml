@@ -5,7 +5,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
 		<title>Readings: Integrative Biology 200</title>
-		<link href="IB200Style_1.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
 		<style type="text/css">
 table.sample {
 	border-width: 1px 1px 1px 1px;
@@ -36,7 +36,7 @@ table.sample td {
 
 	<body>
 		<!-- Site Navigation Menu -->
-		<!--#include file="menu.htm"-->
+		<!--#include file="menu.html"-->
 		<!-- Body Text -->
 		<h1>Integrative Biology 200<br>
 			<small>Readings</small></h1>
@@ -830,7 +830,7 @@ table.sample td {
 		<p></p>
 		<!-- Signature -->
 		<address>
-		<!--#include file="signature.htm" -->
+		<!--#include file="signature.html" -->
 		</address>
 	</body>
 
