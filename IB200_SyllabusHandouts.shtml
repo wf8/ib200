@@ -1,0 +1,551 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>Syllabus and Handouts -- Integrative Biology 200 -- Principles of Phylogenetics: Ecology and Evolution</title>
+<link rel="stylesheet" href="IB200Style_1.css">
+</head>
+
+
+<body>
+<!-- Site Navigation Menu -->
+
+<!--#include file="menu.htm"-->
+
+<!-- Body Text -->
+
+<h1>Integrative Biology 200<br/>
+<small>Principles of Phylogenetics: Ecology and Evolution<br /><br />
+Syllabus and Handouts</small></h1>
+
+<b>Syllabus</b> <a href="IB200_2014_syllabus.pdf">pdf</a><br>
+<br>
+<table width="1123" border="3" 
+cellpadding="5"
+bgcolor="white">
+<tr>
+  <td width="50" valign="top"><b>Date</b> </td>
+  <td width="100" valign="top"><b>Lecture</b> </td>
+  <td width="200" valign="top"><strong>Assigned Readings
+  <br>
+  (see also <a href="IB200B_Readings.shtml">Recommended Readings</a> by topic)</strong></td>
+  <td width="170" valign="top"><b>Lab</b> </td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, Jan. 22</td>
+  <td valign="top"><a href="IB200_2014_syllabus.pdf">Introduction - contemporary issues in phylogenetics (syllabus)</a></td>
+	<td 
+    </td>
+	<td valign="top">Get acquainted roundtable (all)</td>
+</tr>   
+
+<tr>
+  <td valign="top">Friday,<br />Jan. 24 </td>
+  <td valign="top"><a href="lect/ib200_lect01_Mishler_history_philosophy.pdf">What is systematic biology?  History & philosophy (BDM)</a></td>
+	<td valign="top">Mishler, B.D. (2009) Three centuries of paradigm changes in biological classification: Is the end in sight? <i>Taxon</i>, 58(1):61–67.<br /><small>(<a href="http://scholar.google.com/scholar?q=%22Three+centuries+of+paradigm+changes+in+biological+classification%22&btnG=&hl=en&as_sdt=0%2C5">Scholar</a> | <a href='http://www.ingentaconnect.com/content/iapt/tax/2009/00000058/00000001/art00009'>Link</a>)</small>
+	    <br />
+    	<br />
+    	Mishler, B.D. (2014) History and Theory in the Development of Phylogenetics in Botany.</a> In A. Hamilton (ed.), <i>The Evolution of Phylogenetic Systematics</i>. University of California Press, pp. 189–210.<br /><small>(<a href="readings/Mishler 2014 (History).pdf">Local PDF</a>)</small>
+	</td> 
+	<td valign="top">Tour of systematics collections & resources in VLSB</td>
+</tr>
+
+<tr>
+  <td valign="top">Monday, Jan. 27 </td>
+  <td valign="top"><a href="lect/ib200_lect02_Mishler_homology_chars.pdf">The Hennig Principle: homology, synapomorphy, rooting, integrating fossils (BDM)</a></td>
+	<td valign="top">Mishler, B.D. (2005) The logic of the data matrix in phylogenetic analysis. In V.A. Albert (ed.), <i>Parsimony, Phylogeny, and Genomics</i>. Oxford University Press, pp. 57–70. <br /><small>(<a href="readings/Mishler 2005.pdf">Local PDF</a>)</small>
+	</td>
+	<td valign="top">LAB: Discussion about homology (all)
+</td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, Jan. 29 </td>
+  <td valign="top"><a href="lect/ib200_lect03_Mishler_ontogeny.pdf">Morphological data I: Ontogeny and structure of plants vs. animals (BDM)</a></td>
+  <td valign="top">Fink, W.L. (1982) The conceptual relationship between ontogeny and phylogeny. <i>Paleobiology</i>, 8: 254–264. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=%22The+conceptual+relationship+between+ontogeny+and+phylogeny%22&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a> | <a href='http://www.jstor.org/stable/2400410'>Link</a>)</small>
+</td>
+	<td valign="top"><a href="labs/ib200_lab01_Intro_Mesquite.pdf">LAB: Introduction to Mesquite - Data matrix functions (TLG)</a>
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Friday,<br />Jan. 31 </td>
+  <td valign="top"><a href="lect/ib200_lect04_Will_Characters.pdf">Morphological data II: Character coding; primary homology; polarity; additivity (KWW)</a></td>
+	<td valign="top">Maddison, W.P. (1993). Missing data versus missing characters in phylogenetic analysis. <i>Systematic Biology</i>, 42: 576–581.<br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=%22Missing+data+versus+missing+characters+in+phylogenetic+analysis%22&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href="http://dx.doi.org/10.1093/sysbio/42.4.576">DOI</a> | <a href='http://sysbio.oxfordjournals.org/content/42/4/576.full.pdf+html'>Link</a>)</small>
+		<br />
+		<br />
+		Brower, A.V.Z. & Schawaroch, V. (1996). Three steps of homology assessment. <i>Cladistics</i>, 12(3): 265–272. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=%22three+steps+of+homology+assessment%22&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href="http://dx.doi.org/10.1111/j.1096-0031.1996.tb00014.x">DOI</a> | <a href='http://onlinelibrary.wiley.com/doi/10.1111/j.1096-0031.1996.tb00014.x/abstract'>Link</a>)</small>
+		<br />
+		<br />
+		Maddison, D.R. & Maddison, W.P. (2000) Macclade 4 Manual. Sunderland, Mass. Sinauer Associates, pp. 42–44. <br /><small>(<a href='http://scholar.google.com/scholar?q=%22MacClade%204%22&hl=en&btnG=Search&as_sdt=1%2C5'>Scholar</a>  | <a href="http://macclade.org/macclade.html">Link</a> to MacClade website)</small>
+	</td>
+	<td valign="top"><a href="labs/ib200_lab02_Mesquite_part2.pdf">LAB: Introduction to Mesquite - tree functions (TLG)</a>
+		<br />
+		<br />
+		<a href="labs/Amblygnathus.nex">Amblygnathus.nex</a>
+    </td>
+</tr>
+
+<tr>
+  <td valign="top">Monday, Feb. 3 </td>
+  <td valign="top"><a href="lect/ib200_lect05_Mishler_molecular_data.pdf">Molecular data I (BDM)</a></td>
+	<td valign="top">Maddison, W. P. & Maddison, D.R. (2011) Mesquite: a modular system for evolutionary analysis.  Version 2.75   <br /><small><a href='http://mesquiteproject.org/Mesquite_Folder/docs/mesquite/molecular/molecular.html'>Chapter on Molecular Data</a></small>
+	</td>
+	<td valign="top"><b>LAB: Project Topic Due - discuss in class</b>		
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, Feb. 5 </td>
+  <td valign="top"><a href="lect/IB200_lect06_Will_Alignment.pdf">Molecular data II (KWW)</a></td>
+	<td valign="top">Wheeler, T.J. & Kececioglu, J.D. (2007) Multiple alignment by aligning alignments. <i>Bioinformatics</i>, 23(13): i559–i568. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Multiple+alignment+by+aligning+alignments&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='10.1093/bioinformatics/btm226'>DOI</a> | <a href='http://bioinformatics.oxfordjournals.org/content/23/13/i559.full?RESULTFORMAT=&fulltext'>Link</a>)</small>
+	<br />
+	<br />
+	Chenna, R. Sugawara, H. Koike, T. Lopez, R. Gibson, T.J. Higgins, D.G. Thompson, J.D. (2003) Multiple sequence alignment with the Clustal series of programs. <i>Nucl. Acids Res.</i>, 31(13): 3497–3500. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Multiple+sequence+alignment+with+the+Clustal+series+of+programs&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='10.1093/nar/gkg500'>DOI</a> | <a href='http://nar.oxfordjournals.org/content/31/13/3497.full'>Link</a>)</small>
+	<br />
+	<br />
+	[Optional] Warnow, T. (2013) Large-Scale Multiple Sequence Alignment and Phylogeny Estimation. In C. Chauve, N. El-Mabrouk, E. Tannier (eds.), <i>Models and Algorithms for Genome Evolution</i>. Springer London, pp. 85–146.<br /><small>(<a href='http://link.springer.com/chapter/10.1007%2F978-1-4471-5298-9_6'>Link</a>)</small>
+	</td>
+	<td valign="top"><a href="labs/ib200_lab03_GenBank_alignment.pdf">LAB: Intro to Genbank and Sequence Alignment; Clustal, Muscle (TLG)</a>
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Friday,<br /> Feb. 7 </td>
+  <td valign="top"><a href="lect/ib200_lect07_Mishler_Trees.pdf">Phylogenetic Trees I: reconstruction models, algorithms, & assumptions (BDM)</a></td>
+	<td valign="top">Mishler, B.D. (1994) Cladistic Analysis of Molecular and Morphological Data. American Journal of Physical Anthropology, 94: 143–156. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Cladistic+Analysis+of+Molecular+and+Morphological+Data&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='10.1002/ajpa.1330940111'>DOI</a> | <a href='http://onlinelibrary.wiley.com/doi/10.1002/ajpa.1330940111/abstract'>Link</a>)</small>
+	</td>
+	<td valign="top"><a href="labs/ib200_lab04_PAUP.pdf">LAB: Intro to PAUP (TLG)</a>
+		<br />
+		<br />
+		<a href="labs/primate-mtDNA.nex">primate-mtDNA.nex</a>
+	</td>
+	</tr>
+	
+<tr>
+  <td valign="top">Monday, Feb. 10 </td>
+  <td valign="top"><a href="lect/ib200_lect08_Will_Phenetics.pdf">Phylogenetic Trees II: Phenetics; distance-based algorithms (KWW)</a></td>
+	<td valign="top">Saitou, Naruya; Nei, Masatoshi (1987). The Neighbor-joining Method: A New Method for
+Reconstructing Phylogenetic Trees. <i>Molecular Biology and Evolution</i>, 4(4), 406-425. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=The+Neighbor-joining+Method%3A+A+New+Method+for+Reconstructing+Phylogenetic+Trees&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  |<a href='http://mbe.oxfordjournals.org/content/4/4/406.short'>Link</a>)</small>
+  <br /><br />
+  Backeljau, Thierry; De Bruyn, Luc; De Wolf, Hans; Jordaens, Kurt; Van Dongen, Stefan; Winnepenninckx, Birgitta (1995). Multiple UPGMA and Neighbor-joining Trees and the Performance
+of Some Computer Packages. <i>Molecular Biology and Evolution</i>, 13(2), 309-313. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Multiple+UPGMA+and+Neighbor-joining+Trees+and+the+Performance+of+Some+Computer+Packages&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  |<a href='http://mbe.oxfordjournals.org/content/13/2/309.full.pdf'>Link</a>)</small>
+	</td>
+	<td valign="top"><a href="labs/ib200_lab05_PAUP_part2.pdf">LAB: PAUP part 2 - UPGMA, neighbor-joining, parsimony, ML (TLG)</a>
+	<br />
+	<br />
+	<a href="labs/cephalopod_COI_Clustalw.nex">cephalopod_COI_Clustalw.nex</a>
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, Feb. 12 </td>
+  <td valign="top"><a href="lect/ib200_lect09_Will_Parsimony.pdf">Phylogenetic Trees III: Parsimony; Measures of support and robustness (KWW)</a></td>
+	<td valign="top">Siddall, M. and A. Kluge (1997). Probabilism and phylogenetic inference. <i>Cladistics</i> 13, 313-336. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Probabilism+and+phylogenetic+inference&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1111/j.1096-0031.1997.tb00322.x'>DOI</a> | <a href='http://onlinelibrary.wiley.com/doi/10.1111/j.1096-0031.1997.tb00322.x/abstract'>Link</a>)</small>
+	</td>
+	<td valign="top"><a href="labs/ib200_lab06_support_measures.pdf">LAB: Measures of support: bootstrap, jackknife, and Bremer (TLG)</a>
+		<br />
+		<br />
+		<a href="labs/primate-mtDNA.nex">primate-mtDNA.nex</a>
+		</td>
+</tr>
+
+<tr>
+  <td valign="top">Friday,<br /> Feb. 14 </td>
+  <td valign="top"><a href="lect/ib200_lect10_Will_likelihood.pdf">Phylogenetic Trees IV: Maximum likelihood; molecular evolution and phylogenetics (KWW)</a></td>
+	<td valign="top">de Queiroz, K.; Poe, S. (2001). Philosophy and phylogenetic inference: a comparison of likelihood and parsimony methods in the context of Karl Popper's writings on corroboration. <i>Systematic Biology</i> 50, 305-321. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Philosophy+and+phylogenetic+inference%3A+a+comparison+of+likelihood+and+parsimony+methods+in+the+context+of+Karl+Popper%27s+writings+on+corroboration&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a> | <a href="http://dx.doi.org/10.1080/10635150118268 ">DOI</a> | <a href="http://www.jstor.org/stable/3070925">Link</a>)</small> </td>
+	<td valign="top"><a href="labs/ib200_lab07_ML&CIPRES.pdf">LAB: Maximum likelihood using CIPRES supercomputing web interface, jModelTest, and RAxML (TLG)</a>
+	<br />
+	<br />
+	<a href="labs/primate-mtDNA.nex">primate-mtDNA.nex</a>
+	<br />
+	<br />
+	<a href="labs/primates.phy">primates.phy</a>
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, Feb. 19</td>
+  	<td valign="top"><a href="lect/ib200_lect11_Grzymala_MrBayes.pdf">Phylogenetic Trees V: Bayesian methods (TLG)</a></td>
+  <td valign="top">Huelsenbeck, John P.; Larget, Bret; Miller, Richard E.; Ronquist, Fredrik (2002). Potential Applications and Pitfalls of Bayesian Inference of Phylogeny. <i>Systematic Biology</i>, 51(5), 673-688. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Potential+Applications+and+Pitfalls+of+Bayesian+Inference+of+Phylogeny&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1080/10635150290102366'>DOI</a> | <a href='http://sysbio.oxfordjournals.org/content/51/5/673.short'>Link</a>)</small> </td>
+
+	</td>
+	<td valign="top"><a href="labs/ib200_lab08_MrBayes.pdf">LAB: MrBayes (TLG)</a>
+	<br />
+	<br />
+	<a href="labs/primate-mtDNA.nex">primate-mtDNA.nex</a>
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Friday,<br /> Feb. 21 </td>
+  <td valign="top"><a href="lect/ib200_lect12_Will_Dating.pdf">Phylogenetic Trees VI: Dating clocks, calibrations and the proper use of fossils (KWW)</a></td>
+	<td valign="top">Sauquet H. (2013) A practical guide to molecular dating. <i>Comptes Rendes Palevol</i>, 12: 355–367. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=a+practical+guide+to+molecular+dating&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1016/j.crpv.2013.07.003'>DOI</a> | <a href='http://www.sciencedirect.com/science/article/pii/S1631068313001097'>Link</a>)</small>
+	</td>
+	<td valign="top"><a href="labs/ib200_lab09_BEAST.pdf">LAB: Divergence time estimation using BEAUti and BEAST (TLG)</a> 
+    </td>
+</tr>
+
+<tr>
+  <td valign="top">Monday, Feb. 24 </td>
+  <td valign="top"><a href="lect/ib200_lect13_Will_consensus.pdf">Phylogenetic Trees VII: Tree-to-tree comparisons; consensus methods; supertrees (KWW)</a></td>
+	<td valign="top">Bryant D. (2003) A Classification of Consensus Methods for Phylogenetics. <i>DIMACS Series in Discrete Mathematics and Theoretical Computer Science.</i> DIMACS Working Group Meetings on Bioconsensus, October 25-26, 2000, and October 2-5, 2001. 61, 163-184.<br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=A+Classification+of+Consensus+Methods+for+Phylogenetics&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>)
+	</td>
+	<td valign="top"><a href="labs/ib200_lab10_Treeconsensus.pdf">LAB: Consensus trees, tree manipulation, MRP (FigTree) (TLG)</a>
+	<a href="labs/MrBayesCephalopodTprobs.nex">MrBayesCephalopodTprobs.nex</a>
+	<br />
+	<br />
+	<a href="labs/RayMatrix.nex">RayMatrix.nex</a>
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, Feb. 26 </td>
+  <td valign="top"><a href="lect/IntroStats-share.pptx">Introduction to Statistical Thinking (DDA)</a></td>
+	<td valign="top">No Reading Today
+</td>
+	<td valign="top"><a href="labs/ib200_lab11_RIntro.pdf">LAB: Introduction to R (TLG)</a>
+	<a href="labs/Lesson1.R">Lesson1.R</a>
+	<br />
+	<a href="labs/Geospiza.nex">Geospiza.nex</a>
+	<br />
+	<a href="labs/Geospizameasure.txt">Geospizameasure.txt</a>
+	<br />
+	<a href="labs/regressionNull.R">regressionNull.R</a>
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Friday,<br />Feb. 28 </td>
+  <td valign="top"><a href="lect/ib200_lect14_Ackerly_DiscreteState.pdf">Qualitative character evolution I: discrete states; ancestral state reconstruction (DDA)</a></td>
+	<td valign="top">Maddison WP & Slatkin M (1991) Null models for the number of evolutionary steps in a character on a phylogenetic tree. <i>Evolution</i>, 45: 1184–1197. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Null+models+for+the+number+of+evolutionary+steps+in+a+character+on+a+phylogenetic+tree&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.2307/2409726'>DOI</a> | <a href='http://www.jstor.org/stable/2409726'>Link</a>)</small>
+	<br />
+	<br />
+	Donoghue MJ (1989) Phylogenies and the analysis of evolutionary sequences, with examples from the seed plants. <i>Evolution</i>, 43:1137-1156. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Phylogenies+and+the+analysis+of+evolutionary+sequences%2C+with+examples+from+the+seed+plants&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.2307/2409353'>DOI</a> | <a href='http://www.jstor.org/stable/2409353'>Link</a>)</small>
+	</td>
+	<td valign="top"> <b>LAB: Discussion of application papers (Bring a paper from your group)</b>
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Monday, March 3</td>
+  <td valign="top"><a href="lect/ib200_lect15_Ackerly_MLDisc.pdf">Qualitative character evolution II: comparing two or more characters (DDA)</a></td>
+	<td valign="top">Schluter D, Price T, Mooers A & Ludwig D (1997) Likelihood of ancestor states in adaptive radiation. <i>Evolution</i>, 51: 1699-1711 <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Likelihood+of+ancestor+states+in+adaptive+radiation&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.2307/2410994'>DOI</a> | <a href='http://www.jstor.org/stable/2410994'>Link</a>)</small>
+	<br />
+	<br />
+	Kadereit G, Ackerly DD & Pirie MD. (2012) A broader model for C4 photosynthesis evolution in plants inferred from the goosefoot family (Chenopodiaceae s.s.). <i>Proceedings of the Royal Society Series B</i>, 279: 3304-3311. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=A+broader+model+for+C4+photosynthesis+evolution+in+plants+inferred+from+the+goosefoot+family+%28Chenopodiaceae+s.s.%29&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1098/rspb.2012.0440'>DOI</a> | <a href='http://rspb.royalsocietypublishing.org/content/279/1741/3304.short'>Link</a>)</small>
+	</td>
+	<td valign="top"><b>LAB: Open R Lab</b></td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, March 5 </td>
+  <td valign="top"><a href="lect/ib200_lect16_Ackerly_Anc Cont&PIC.pdf">Quantitative character evolution I: ancestral trait reconstruction; phylogenetic conservatism (DDA)</a></td>
+	<td valign="top">Felsenstein J (1985) Phylogenies and the comparative method. <i>American Naturalist</i>, 125: 1-15.  <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Phylogenies+and+the+comparative+method&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://www.jstor.org/stable/2461605'>Link</a>)</small>
+	<br />
+	<br />
+	Oakley TH, Cunningham CW (2000) Independent contrasts succeed where ancestral reconstruction fails in a known bacteriophage phylogeny. <i>Evolution</i>, 54: 397-405.  <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Independent+contrasts+succeed+where+ancestral+reconstruction+fails+in+a+known+bacteriophage+phylogeny&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1111/j.0014-3820.2000.tb00042.x'>DOI</a> | <a href='http://onlinelibrary.wiley.com/doi/10.1111/j.0014-3820.2000.tb00042.x/abstract'>Link</a>)</small>
+	</td>
+	<td valign="top">LAB: Intro to R continued: phylogenetic conservatism; correlation of discrete characters (TLG)<br /><br />
+	<br /><a href="labs/ib200_lab12_R_continuous_characters.R">ib200_lab12_R_continuous_characters.R</a>
+	<br /><a href="labs/anolis_continuous.nex">anolis_continuous.nex</a>
+	<br /><a href="labs/anolis_continuous_data_table.txt">anolis_continuous_data_table.txt</a>
+	<br /><a href="labs/_R_tree_functions_v1.R">_R_tree_functions_v1.R</a>
+	<br /><a href="labs/_genericR_v1.R">_genericR_v1.R</a>
+
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Friday, March 7 </td>
+  <td valign="top"><a href="lect/ib200_lect17_Ackerly_continuousII.pdf">Quantitative character evolution II: independent contrasts and trait correlations (DDA)</a></td>
+	<td valign="top">Hansen T (1997) Stabilizing selection and the comparative analysis of adaptation. <i>Evolution</i>, 51: 1341-1351.  <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Stabilizing+selection+and+the+comparative+analysis+of+adaptation&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.2307/2411186'>DOI</a> | <a href='http://www.jstor.org/stable/2411186'>Link</a>)</small>
+	<br />
+	<br />
+	Ackerly DD (2009) Conservatism and diversification of plant functional traits: Evolutionary rates versus phylogenetic signal. <i>Proceedings of the National Academy of Sciences USA</i>, 106: 19699-19706.  <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Conservatism+and+diversification+of+plant+functional+traits%3A+Evolutionary+rates+versus+phylogenetic+signal&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a> | <a href='http://www.pnas.org/content/106/Supplement_2/19699.short'>Link</a>)</small>
+	</td>
+	<td valign="top">LAB: Continuous characters; independent contrasts in R (TLG)
+	<br /><a href="labs/ib200_lab13_R_PICs.R">ib200_lab13_R_PICs.R</a>
+	<br />
+	<br /><a href="labs/PIC.assignment.nex">PIC.assignment.nex</a>
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Monday, March 10 </td>
+  <td valign="top"><a href="lect/ib200_lect18_Ackerly_Adaptation.pdf">Phylogenetics and adaptation (DDA)</a></td>
+	<td valign="top">Coddington JA (1994) The roles of homology and convergence in studies of adaptation. Academic Press, London
+	<br />
+	<br />
+	Gould SJ & Lewontin RC (1979) The Spandrels of San Marco and the Panglossian Paradigm: A Critique of the Adaptationist Programme. <i>Proceedings of the Royal Society of London. Series B, Biological Sciences</i>, 205(1161):581-598 <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=The+Spandrels+of+San+Marco+and+the+Panglossian+Paradigm%3A+A+Critique+of+the+Adaptationist+Programme&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1098/rspb.1979.0086'>DOI</a> | <a href='http://rspb.royalsocietypublishing.org/content/205/1161/581.short'>Link</a>)</small> </td>
+	</td>
+	<td valign="top">LAB: Discussion of adaptation (all)
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, March 12 </td>
+  <td valign="top"><a href="lect/ib200_lect19_Will_Phylogenetic_Classifications.pdf">Classification I: Introduction to phylogenetic classification; monophyly; information content (KWW)</a></td>
+	<td valign="top">No Reading Today</td>
+	<td valign="top"><a href="labs/ib200_lab14_OnlineDatabaseTour.pdf">LAB: Online systematic databases I: nomenclature, geography, phylogeny (TreeBase) (TLG)</a>
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Friday, March 14 </td>
+  <td valign="top"><a href="lect/ib200_lect20_Will_Codes.pdf">Classification II: Nomenclature; Zoological and Botanical codes; practical systematics; monography (KWW)</a></td>
+	<td valign="top">Wiley EO, Lieberman BS (2011)Phylogenetic Classification. In: <i>Phylogenetics: The Theory of Phylogenetic Systematics</i>, Second Edition. Wiley-Blackwell, pp.229–259 <br /><small>(<a href="readings/Phylogenetics_Wiley&Lieberman_Chapter8.pdf">Local PDF</a>)</small>
+	<br />Call for opinions about the role of the ICZN <a href="http://iczn.org/node/40405">http://iczn.org/node/40405</a>
+	</td>
+	<td valign="top">LAB: Discussion of the role of systematics and classification in modern biology (all)
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Monday, March 17 </td>
+  <td valign="top"><a href="lect/ib200_lect21_Mishler_Phylocode.pdf">Classification III: Phylogenetic taxonomy including incorporation of fossils; Phylocode (BDM)</a> </td>
+	<td valign="top"> <a href="http://www.ohio.edu/phylocode/preface.html">Introduction to the PhyloCode </a>
+	</td>
+	<td valign="top"><a href="labs/ib200_lab15_SpecimenDatabase.pdf">LAB: Online systematic databases II: specimens (TLG)</a><br />
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, March 19 </td>
+  <td valign="top"><a href="lect/ib200_lect22_Mishler_Species.pdf">Classification IV: Species concepts, speciation (BDM)</a></td>
+	<td valign="top">Mishler BD. (2010) Species are not uniquely real biological entities. In F. Ayala and R. Arp (eds.), Contemporary Debates in Philosophy of Biology,  pp. 110-122. Wiley-Blackwell.<br /><small>(<a href="readings/Mishler 2010 (Arp & Ayala).pdf">Local PDF</a>)</small>
+	</td>
+	<td valign="top">LAB: Discussion of species concepts (all)
+	</td>	
+</tr>
+
+<tr>
+<td valign="top">Friday, March 21 </td>
+  <td valign="top"><a href="lect/ib200_lect23_Will_Barcode.pdf">Classification V: DNA barcoding and DNA taxonomy (KWW)</a></td>
+	<td valign="top">Kwong S, Srivathsan A, Meier R (2012) An update on DNA barcoding: low species coverage and numerous unidentified sequences. <i>Cladistics</i>, 28(6): 639–644.  <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=An+update+on+DNA+barcoding%3A+low+species+coverage+and+numerous+unidentified+sequences&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1111/j.1096-0031.2012.00408.x'>DOI</a> | <a href='http://onlinelibrary.wiley.com/doi/10.1111/j.1096-0031.2012.00408.x/full'>Link</a>)</small>
+	<br />
+	<br />
+	Will KW, Mishler BD, Wheeler QD (2005) The perils of DNA barcoding and the need for integrative taxonomy. <i>Systematic Biology</i>, 54(5): 844–851. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=The+Perils+of+DNA+Barcoding+and+the+Need+for+Integrative+Taxonomy&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1080/10635150500354878'>DOI</a> | <a href='http://sysbio.oxfordjournals.org/content/54/5/844.full'>Link</a>)</small>
+	</td>
+	<td valign="top"><b>LAB: Discuss progress on projects in class</b><br /><br />
+	<b>QUIZ 1</b> handed out (due this evening)
+	(see <a href="IB200_Quizzes.shtml">past quizzes</a>)
+	</td>	
+</tr>
+
+<tr>
+  <td valign="top">March 24 - 28: </td>
+  <td colspan=3 valign="top"><i>SPRING BREAK</i> </td>
+</tr>
+
+<tr>
+  <td valign="top">Monday, March 31</td>
+  <td valign="top"><a href="lect/ib200_lect24_Ackerly_Traits.pdf">Traits, plasticity, and environment (DDA)</a></td>
+	<td valign="top">No Reading Today
+	</td> 
+    <td valign="top">LAB: Project Progress; Catch-up</td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, April 2 </td>
+  <td valign="top"><a href="lect/ib200_lect25_Mishler_MolecularEvol.pdf">Molecular evolution (BDM)</a></td>
+	<td valign="top">Wolfe KH, Li W (2003) Molecular evolution meets the genomics revolution. <i>Nature Genetics</i> 33(3s), 355-365. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Molecular+evolution+meets+the+genomics+revolution&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1038/ng1088'>DOI</a> | <a href='http://www.nature.com/ng/journal/v33/n3s/full/ng1088.html'>Link</a>)</small>
+	</td>
+	<td valign="top">LAB: Analysis of molecular evolution; substitution models, Modeltest (TLG)</td>
+</tr>
+
+<tr>
+  <td valign="top">Friday, April 4 </td>
+  <td valign="top"><a href="lect/ib200_lect26_Mishler_Genomics.pdf">Gene family evolution; comparative genomics; evo-devo (BDM)</a></td>
+	<td valign="top">Eisen JA, Fraser CM (2003) Phylogenomics: Intersection of Evolution and Genomics. <i>Science</i> 300(5626), 1706-1707. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Phylogenomics%3A+Intersection+of+Evolution+and+Genomics&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1126/science.1086292'>DOI</a> | <a href='http://www.sciencemag.org/content/300/5626/1706.short'>Link</a>)</small>
+	<br />
+	<br />
+	Boussau B, Daubin V (2010) Genomes as documents of evolutionary history. <i>Trends in Ecology & Evolution</i> 25(4), 224-232. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Genomes+as+documents+of+evolutionary+history&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1016/j.tree.2009.09.007'>DOI</a> | <a href='http://www.sciencedirect.com/science/article/pii/S0169534709002973'>Link</a>)</small>
+	</td>
+	<td valign="top"><a href="labs/ib200_lab16_Phylogenomics.pdf">LAB: Tools for comparative genomics (TLG)</a>
+	<br />
+	<br />
+	<a href="labs/Nematode_lin-39.fasta">Nematode_lin-39.fasta</a>
+	<br />
+	<br />
+	<a href="labs/Mystery.fasta">Mystery.fasta</a>
+	</td>
+	</tr>
+
+<tr>
+  <td valign="top">Monday, April 7 </td>
+  <td valign="top"><a href="lect/ib200_lect27_Mishler_Reticulation.pdf">Phylogenetic trees VIII: Below the "species level"; phylogeography; dealing with reticulation (BDM)</a></td>
+	<td valign="top">Posada D, Crandall KA (2001) Intraspecific gene genealogies: trees grafting into networks. <i>Trends in Ecology & Evolution</i>, 16(1): 37-45. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Intraspecific+gene+genealogies%3A+trees+grafting+into+networks&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1016/S0169-5347(00)02026-7'>DOI</a> | <a href='http://www.sciencedirect.com/science/article/pii/S0169534700020267'>Link</a>)</small>
+	</td>
+	<td valign="top">LAB: Discussion of coalescence theory; applications in population genetics and phylogeography (all)</td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, April 9 </td>
+  <td valign="top"><a href="lect/ib200_lect28_Ackerly_Diversification.pdf">Comparing sister clades within a cladogram: the shape of evolution  (DDA)</a></td>
+	<td valign="top">Morlon H (2014) Phylogenetic approaches for studying diversification. <i>Ecology Letters</i>, 17(4): 508-525<br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Phylogenetic+approaches+for+studying+diversification&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1111/ele.12251'>DOI</a> | <a href='http://onlinelibrary.wiley.com/doi/10.1111/ele.12251/full'>Link</a>)</small>
+	<br />
+	<br />
+	Hodges SA, Arnold ML (1995) Spurring plant diversification: are floral nectar spurs a key innovation? <br /><small>(<a href='http://scholar.google.com/scholar?q=Spurring+plant+diversification%3A+Are+floral+nectar+spurs+a+key+innovation%3F&btnG=&hl=en&as_sdt=0%2C5'>Scholar</a>  | <a href='http://dx.doi.org/10.1098/rspb.1995.0215'>DOI</a> | <a href='http://rspb.royalsocietypublishing.org/content/262/1365/343.short'>Link</a>)</small>
+	<br />
+	<br />
+	Harmon LJ, Schulte JA, Larson A, Losos JB (2003) Tempo and mode of evolutionary radiation in Iguanian lizards<br /><small>(<a href='http://scholar.google.com/scholar?q=Tempo+and+mode+of+evolutionary+radiation+in+Iguanian+lizards&btnG=&hl=en&as_sdt=0%2C5'>Scholar</a>  | <a href='http://dx.doi.org/10.1126/science.1084786'>DOI</a> | <a href='http://www.sciencemag.org/content/301/5635/961.short'>Link</a>)</small>
+	</td>
+	<td valign="top"><a href="labs/Lab17/ib200_lab17_CladeBalance.pdf">LAB: Generating random trees; testing cladogram imbalance (TLG)</a> 
+	<br />
+	<br />
+	<a href="labs/Lab17/Colless_example.nex">Colless_example.nex</a>
+	<br />
+	<br />
+	<a href="labs/Lab17/ib200_lab17_simulating_trees.R">ib200_lab17_simulating_trees.R</a>
+	<br />
+	<br / ><small>[*This lab material will be covered on 4/11] </small>
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Friday, April 11 </td>
+  <td valign="top"><a href="lect/ib200_lect29_Ackerly_AdaptRadiation.pdf">Adaptive radiations (DDA)</a><br /><small>[*This lecture material will be covered on 4/9]</small></td>
+	<td valign="top">No Reading Today
+	</td>
+	<td valign="top"><a href="labs/Lab18/ib200_lab18_lineages_thru_time.pdf">LAB: Lineages through time; diversification analyses (TLG)</a>
+	</td>	
+</tr>
+
+<tr>
+  <td valign="top">Monday, April 14 </td>
+  <td valign="top"><a href="lect/ib200_lect30_Mishler_Macroevolution.pdf">Tempo and mode in macroevolution: patterns of diversification and extinction (BDM)</a></td>
+	<td valign="top">Jablonski D (2008) Species Selection: Theory and Data. <i>Annual Review of Ecology Evolutionand Systematics</i>, 39:501-524. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Species+Selection%3A+Theory+and+Data&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1146/annurev.ecolsys.39.110707.173510'>DOI</a> | <a href='http://www.annualreviews.org/doi/full/10.1146/annurev.ecolsys.39.110707.173510'>Link</a>)</small>
+	</td>
+	<td valign="top"><b>LAB: discuss progress on projects in class; present initial analysis of datasets</b></td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, April 16 </td>
+  <td valign="top"><a href="lect/ib200_lect31_Ackerly_CommPhylo.pdf">Phylogenies and community ecology (DDA)</a></td>
+	<td valign="top">Cavender-Bares J, Ackerly DD, Baum D, and Bazzaz FA (2004) Phylogenetic overdispersion in Floridian oak communities. <i>American Naturalist</i>, 163: 823-843. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Phylogenetic+overdispersion+in+Floridian+oak+communities&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1086/386375'>DOI</a> | <a href='http://www.jstor.org/stable/10.1086/386375'>Link</a>)</small>
+	<br />
+	<br />
+	Cavender-Bares J, Kozak KH, Fine PVA, and Kembel SW (2009) The merging of community ecology and phylogenetic biology. <i>Ecology Letters</i>, 12: 693-715. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=The+merging+of+community+ecology+and+phylogenetic+biology&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1111/j.1461-0248.2009.01314.x'>DOI</a> | <a href='http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2009.01314.x/full'>Link</a>)</small>
+	</td>
+	<td valign="top">LAB: Picante, Phylocom (TLG)
+	<br />
+	<br />
+	<a href="labs/Lab19/ib200_lab19_phylocom_v2.R">ib200_lab19_phylocom_v2.R</a>
+	<br />
+	<br />
+	<a href="labs/Lab19/oakphylo.txt">oakphylo.txt</a>
+	<br />
+	<br />
+	<a href="labs/Lab19/oaksample.txt">oaksample.txt</a>
+	<br />
+	<br />
+	<a href="labs/Lab19/Kembel_picante_walkthrough.pdf">Kembel picante walkthrough</a>
+</td>
+</tr>
+
+<tr>
+  <td valign="top">Friday, April 18 </td>
+  <td valign="top"><a href="lect/ib200_lect32_Mishler_Conservation.pdf">Phylogenetics and conservation biology (BDM)</a></td>
+	<td valign="top">Faith DP (1992) Conservation evaluation and phylogenetic diversity. <i>Biological Conservation</i>, 61(1): 1-10. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Conservation+evaluation+and+phylogenetic+diversity&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1016/0006-3207(92)91201-3'>DOI</a> | <a href='http://www.sciencedirect.com/science/article/pii/0006320792912013'>Link</a>)</small>
+	</td>
+	<td valign="top">LAB: Introduction to BIODIVERSE (TLG)</td>
+</tr>
+
+<tr>
+  <td valign="top">Monday, April 21 </td>
+  <td valign="top"><a href="lect/ib200_lect33_Will_Biogeography.pdf">Biogeography I: Basic principles; ecological vs. historical approaches (KWW)</a></td>
+	<td valign="top">Ronquist F, Sanmartin I (2011) Phylogenetic Methods in Biogeography. <i>Annual Review of Ecology, Evolution, and Systematics</i>, 42: 441-464. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Phylogenetic+Methods+in+Biogeography&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1146/annurev-ecolsys-102209-144710'>DOI</a> | <a href='http://www.annualreviews.org/eprint/GV8p68dISY6A9I3XtN7v/full/10.1146/annurev-ecolsys-102209-144710'>Link</a>)</small>
+	</td>
+	<td valign="top">LAB: Discussion on methods in biogeography (all)</td>
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, April 23 </td>
+  <td valign="top"><a href="lect/ib200_lect34_Will_Biogeography2.pdf">Biogeography II: Vicariance biogeography; detecting dispersal (KWW)</a></td>
+	<td valign="top">No Reading Today
+	</td>
+	<td valign="top"><a href="labs/Lab21/IB200_BioGeoBEARS_demo_updated.R">LAB: Biogeographic software: DIVA, Lagrange, BioGeoBEARS (TLG)</a>
+	<br />
+	<br />
+	<a href="labs/Lab21/Psychotria_5.2.newick">Psychotria_5.2.newick</a>
+	<br />
+	<br />
+	<a href="labs/Lab21/Psychotria_geog.data">Psychotria_geog.data</a>
+	<br />
+	<br />
+	<a href="http://phylo.wdfiles.com/local--files/biogeobears/BioGeoBEARS_supermodel.png">DIVAvsDECvsBioGeoBEARS</a>
+	</td>
+</tr>
+
+<tr>
+  <td valign="top">Friday, April 25 </td>
+  <td valign="top"><a href="lect/ib200_lect35_Mishler_Biogeography III.pdf">Biogeography III: Phylogenetic and range modeling; biome recognition and other issues (BDM)</a></td>
+	<td valign="top">Graham CH & Fine PVA(2008) Phylogenetic beta diversity: linking ecological and evolutionary processes across space in time. <i>Ecology Letters</i>, 11: 1265-1277.<br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Phylogenetic+beta+diversity%3A+linking+ecological+and+evolutionary+processes+across+space+in+time&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1111/j.1461-0248.2008.01256.x'>DOI</a> | <a href='http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2008.01256.x/full'>Link</a>)</small>
+	</td>
+	<td valign="top"><a href="labs/ib200_lab22_Biodiverse.pdf">LAB: BIODIVERSE; phylogenetic beta-diversity; measuring phylogenetic turnover; mapping (TLG)</a></td>	
+</tr>
+
+<tr>
+  <td valign="top">Monday, April 28 </td>
+  <td valign="top"><a href="lect/ib200_lect36_Cospeciation&Coevolution.pdf">Cospeciation & Coevolution (DDA)</a><br /><br /><small><a href="lect/David_slides/200-14-04-28-cospecation&coevolution.ppt">PPT Slides</a></small></td>
+	<td valign="top">Percy DM, Page RDM, Cronk QCB (2004) Plant-Insect Interactions: Double-Dating Associated Insect and Plant Lineages Reveals Asynchronous Radiations. <i>Systematic Biology</i>, 53(1): 120–127. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=+Plant-Insect+Interactions%3A+Double-Dating+Associated+Insect+and+Plant+Lineages+Reveals+Asynchronous+Radiations&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1080/10635150490264996'>DOI</a> | <a href='http://sysbio.oxfordjournals.org/content/53/1/120.short'>Link</a>)</small>
+	</td>
+	<td valign="top"><a href="labs/Lab23/ib200_lab23_Cospeciation.pdf">LAB: Cospeciation methods (TLG)</a>
+	<br />
+	<br />
+	<a href="labs/Lab23/gopher_louse.tree">gopher_louse.tree</a>
+	</td>	
+</tr>
+
+<tr>
+  <td valign="top">Wednesday, April 30 </td>
+  <td valign="top"><a href="lect/David_slides/coexistence_II.pptx">Phylogenetic structure & Ecosystem function (DDA)</a></td>
+	<td valign="top">Godoy O, Kraft NJB, Levine JM (2014) Phylogenetic relatedness and the determinants of competitive outcomes. <i>Ecology Letters</i>, 1–9. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Phylogenetic+relatedness+and+the+determinants+of+competitive+outcomes&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1111/ele.12289'>DOI</a> | <a href='http://onlinelibrary.wiley.com/doi/10.1111/ele.12289/full'>Link</a>)</small>
+	<br />Rezende EL, Lavabre JE, Guimaraes PR, Jordano P, Bascompte J (2007) Non-random coextinctions in phylogenetically structured mutualistic networks. <i>Nature</i>, 488: 925–928. <br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=Non-random+coextinctions+in+phylogenetically+structured+mutualistic+networks&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1038/nature05956'>DOI</a> | <a href='http://www.nature.com/nature/journal/v448/n7156/abs/nature05956.html'>Link</a>)</small>
+	<br />Adler PB, HilleRisLambers J, Levine JM (2007) A niche for neutrality. <i>Ecology Letters</i>, 10: 95–104.<br /><small>(<a href='http://scholar.google.com/scholar?hl=en&q=a+niche+for+neutrality&btnG=&as_sdt=1%2C5&as_sdtp='>Scholar</a>  | <a href='http://dx.doi.org/10.1111/j.1461-0248.2006.00996.x'>DOI</a> | <a href='http://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2006.00996.x/full'>Link</a>)</small>
+	</td>
+	<td valign="top"><b>LAB: discussion progress on projects in class (all)</b></td>		
+</tr>
+
+<tr>
+  <td valign="top">Friday,<br /> May 2 </td>
+  <td valign="top">Glimpses of the future: integrating genetics, genomics, physiology, ecology, and evolution (DDA, BDM, KWW)</a> </td>
+	<td valign="top">
+	</td>
+	<td valign="top"> LAB: final discussion<br />
+	<b>QUIZ 2</b> handed out (due this evening)<br />
+	(see <a href="IB200_Quizzes.shtml">past quizzes</a>)
+	</td>
+</tr>
+
+<tr></tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><tr></tr>
+  <td valign="top">May 5-16 </td>
+  <td colspan=3 valign="top"><i>READING &amp; FINALS WEEKS</i></td>
+</tr>
+
+<tr>
+  <td valign="top">Monday, May 5</td>
+  <td colspan=3 valign="top"><b>Course summary and perspectives on the future (all)</b> </td>
+  <tr>
+  <td valign="top">Friday,<br /> May 9</td>
+  <td colspan=3 valign="top"><b>Student minisymposium [location and time TBA]</b> </td>
+</tr>	
+
+<tr>
+  <td valign="top">Wednesday, May 14</td>
+  <td colspan=3 valign="top"><b>Final projects due</b> </td>
+</tr>	
+	
+</table>
+
+
+<!-- Signature -->
+
+<address>
+<!--#include file="signature.htm" -->
+</address>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>Syllabus and Handouts: Integrative Biology 200B</title>
+<link rel="stylesheet" href="IB200Style_1.css">
+</head>
+
+
+<body>
+<!-- Site Navigation Menu -->
+
+<!--#include file="menu.htm"-->
+
+<!-- Body Text -->
+
+<h1>Integrative Biology 200A <br>
+<small>Syllabus and Handouts</small></h1>
+
+<b>Syllabus</b> <a href="2011_ib200b_syllabus.html">html</a> <a href="2011_ib200b_syllabus.pdf">pdf</a>; see also <a href="ib200b_2009/syllabus.html">2008 handouts</a><br>
+<br>
+<table width="1123" border="3" 
+cellpadding="5"
+bgcolor="white">
+<tr>
+  <td width="50" valign="top"><b>Date</b> </td>
+  <td width="100" valign="top"><b>Lecture</b> </td>
+  <td width="200" valign="top"><strong>Assigned Readings
+  <br>
+  (see also <a href="IB200B_Readings.shtml">Recommended Readings</a> by topic)</strong></td>
+  <td width="170" valign="top"><b>Lab</b> </td>
+</tr>
+<tr>
+  <td valign="top">Tuesday, Jan. 18</td>
+  <td valign="top"><a href="2011_ib200b_syllabus.pdf">Introduction to aims of course (syllabus)</a> / <a href="lect/ib200a_lect02_Misher_Hennig_characters.pdf">Phylogenetic reconstruction in a nutshell: homology & characters (BDM)</a></td>
+	<td valign="top">Mishler, Brent D. (2005). <a href="http://scholar.google.com/scholar?hl=en&q=The+logic+of+the+data+matrix+in+phylogenetic+analysis&btnG=Search&as_sdt=2000&as_ylo=&as_vis=0">The logic of the data matrix in phylogenetic analysis</a>. 
+    In V.A. Albert (ed.), <i><a href="http://scholar.google.com/scholar?q=Parsimony%2C+Phylogeny%2C+and+Genomics&hl=en&btnG=Search&as_sdt=2001&as_sdtp=on">Parsimony, Phylogeny, and Genomics</a></i>, 
+    Oxford University Press, 57-70. doi: <a href="http://dx.doi.org/10.1093/acprof:oso/9780199297306.003.0004">10.1093/acprof:oso/9780199297306.003.0004</a> (<a href="readings/Mishler_2005_logic_data_matrix.pdf">Local PDF</a>)
+    <br />
+    <br />
+    (recommended) Pleijel, Fredrik (1995). "On character coding for phylogeny reconstruction." <i>Cladistics</i> 11(3): 309-315. (<a href="http://scholar.google.com/scholar?q=ON+CHARACTER+CODING+FOR+PHYLOGENY+RECONSTRUCTION&hl=en&btnG=Search&as_sdt=1%2C5">Scholar</a>)
+    </td>
+	<td valign="top">Get acquainted roundtable (all)</td>
+</tr>   
+<tr>
+  <td valign="top">Thursday, Jan. 20 </td>
+  <td valign="top"><a href="lect/">Phylogenetic reconstruction in a nutshell: trees (BDM)</a></td>
+	<td valign="top">TBA</td>
+	<td valign="top">Tour of systematics collections & resources in VLSB</td>
+</tr>
+<tr>
+  <td valign="top">Tuesday, Jan. 25 </td>
+  <td valign="top"><a href="lect/">What can we do with trees once we have them? 1. Classification classical and modern (DRL)</a></td>
+	<td valign="top">TBA</td>
+	<td valign="top"><a href="labs/">Introduction to Statistical Thinking (all)</a></td>
+</tr>
+<tr>
+  <td valign="top">Thursday, Jan. 27 </td>
+  <td valign="top"><a href="lect/">Qualitative character evolution within a cladogram (discrete states; ancestral state reconstructions; single characters - BDM)</a> </td>
+  <td valign="top"> </td>
+	<td valign="top"><a href="labs/">Lab #1: Introduction to Mesquite; Discrete character reconstruction</a></td>
+</tr>
+<tr>
+  <td valign="top">Tuesday, Feb. 1 </td>
+  <td valign="top"><a href="lect/">Qualitative character evolution (comparing two or more characters - BDM)</a></td>
+	<td valign="top">TBA</td>
+	<td valign="top">LAB #2: <a href="labs/">Phylogenetic Conservatism and Correlation of Discrete Characters</a>a> (Mesquite - Matzke)</td>
+</tr>
+<tr>
+  <td valign="top">Thursday, Feb. 3 </td>
+  <td valign="top"><a href="lect/">Quantitative character evolution within a cladogram (intro; ancestral trait reconstruction; phylogenetic conservatism - BDM)</a></td>
+	<td valign="top">TBA</td>
+	<td valign="top"><a href="labs/">LAB #3: Introduction to R (Matzke)</a></td>
+</tr>
+<tr>
+  <td valign="top">Tuesday, Feb. 8 </td>
+  <td valign="top"><a href="lect/">Evolution and development - heterochrony (DRL)</a></td>
+	<td valign="top">TBA</td>
+	<td valign="top"><a href="labs/">LAB #4: Intro to R continued: Phylogenies; Continuous characters</a></td>
+</tr>
+<tr>
+  <td valign="top">Thursday, Feb. 10 </td>
+  <td valign="top"><a href="lect/">Independent contrasts and trait correlations (Ginger Jui)</a> </td>
+	<td valign="top">TBA</td>
+	<td valign="top"><a href="labs/">LAB #5: independent contrasts (R)</a></td>
+	</tr><tr>
+  <td valign="top">Tuesday, Feb. 15 </td>
+  <td valign="top"><a href="lect/">Morphometrics (DRL)</a> </td>
+	<td valign="top">TBA</td>
+	<td valign="top"><a href="labs/">LAB #6: morphometrics applications</a>	</td>
+</tr>
+<tr>
+  <td valign="top">Thursday, Feb. 17 </td>
+  <td valign="top"><a href="lect/">Fossil data in phylogenetics (DRL)</a>				</td>
+	<td valign="top">TBA</td>
+	<td valign="top">LAB: <b>PROJECT TOPIC DUE: discuss your potential project in class</b></td>
+</tr><tr>
+  <td valign="top">Tuesday, Feb. 22 </td>
+  <td valign="top"><a href="lect/">Tempo in macroevolution (DRL)</a> </td>
+	<td valign="top">TBA</td>
+	<td valign="top"><a href="labs/">LAB #7: testing molecular clock, r8s, BEAST (Matzke)</a></td>
+</tr><tr>
+  <td valign="top">Thursday, Feb. 24</td>
+  <td valign="top"><a href="lect/">Dating in the 21st Century: putting dates on nodes, characters, and events (DRL)</a></td>
+	<td valign="top">TBA</td>
+	<td valign="top">LAB: discussion: the use of fossil data in phylogenetic reconstruction (all)</td>
+</tr><tr>
+  <td valign="top">Tuesday, March 1 </td>
+  <td valign="top"><a href="lect/">Molecular evolution (BDM)</a></td>
+	<td valign="top">TBA</td>
+	<td valign="top"><a href="labs/">LAB #8: analysis of molecular evolution; substitution models, Modeltest, etc (Matzke)</a> 
+    <br />
+    <a href="labs/modelblockPAUPb10.nex">modelblockPAUPb10.nex</a>
+    </td>
+</tr><tr>
+  <td valign="top">Thursday, March 3 </td>
+  <td valign="top"><a href="lect/">Gene family evolution; comparative genomics (Matzke)</a> </td>
+	<td valign="top">TBA</td>
+	<td valign="top"><a href="labs/">LAB #9: tools for comparative genomics; BLAST, etc. (Matzke)</a></td>
+</tr><tr>
+  <td valign="top">Tuesday, March 8 </td>
+  <td valign="top"><a href="lect/">Evolution and Development (DRL)</a></td>
+	<td valign="top">TBA</td>
+	<td valign="top"><a href="labs/">LAB #10: tools for evo-devo (Matzke)</a></td>
+</tr><tr>
+  <td valign="top">Thursday, March 10 </td>
+  <td valign="top"><a href="lect/">Phylogenetics and adaptation (BDM)</a><br /></td>
+	<td valign="top">TBA</td>
+	<td valign="top">LAB: discussion of adaptation (all)</td>
+</tr><tr>
+  <td valign="top">Tuesday, March 15</td>
+  <td valign="top"><a href="lect/">Comparing sister clades within a cladogram: the shape of evolution (DRL)</a></td>
+	<td valign="top">TBA</td>
+	<td valign="top">LAB #11: generating random trees; testing cladogram imbalance (Matzke)</td>
+</tr><tr>
+  <td valign="top">Thursday, March 17 </td>
+  <td valign="top"><a href="lect/">Adaptive radiations (BDM)</a> </td>
+	<td valign="top">TBA</td>
+	<td valign="top"><a href="labs/">LAB #12: lineages through time; diversification analyses (Matzke)</a></td>
+</tr><tr>
+  <td valign="top">March 21 - 25: </td>
+  <td colspan=3 valign="top"><i>Spring Break</i> </td>
+</tr><tr>
+  <td valign="top">Tuesday, March 29</td>
+  <td valign="top"><a href="lect/">Speciation and related issues: species revisited (BDM)</a> </td>
+	<td valign="top">TBA</td> 
+    <td valign="top">LAB: <b>QUIZ 1</b></td>
+</tr><tr>
+  <td valign="top">Thursday, March 31 </td>
+  <td valign="top"><a href="lect/">Reticulation and phylogenetics; "phylogeography" and population biology (BDM)</a> </td>
+	<td valign="top">TBA</td>
+	<td valign="top">LAB: discussion of species (all) <b>(your project data set should be complete)</b></td>
+</tr><tr>
+  <td valign="top">Tuesday, April 5 </td>
+  <td valign="top"><a href="lect/">Phylogenetics and conservation biology (BDM)</a></td>
+	<td valign="top">&nbsp;</td>
+	<td valign="top"><a href="labs/">LAB #13: coalescence theory; applications in population genetics and phylogeography (Matzke)</td>
+</tr><tr>
+  <td valign="top">Thursday, April 7 </td>
+  <td valign="top"><a href="lect/">Modes in macroevolution - patterns of diversification and extinction (DRL)</a> </td>
+	<td valign="top">TBA</td>
+	<td valign="top">LAB: discussion on levels of selection (all)</td>
+</tr><tr>
+  <td valign="top">Tuesday, April 12 </td>
+  <td valign="top"><a href="lect/">Comparing cladograms; supertrees; coevolution; symbiosis (BDM)</a></td>
+	<td valign="top">TBA</td>
+	<td valign="top"><a href="">LAB #14: consensus methods; Brooks parsimony (Matzke)</a></td>
+</tr><tr>
+  <td valign="top">Thursday, April 14 </td>
+  <td valign="top"><a href="lect/">Biogeography I -- basic principles; ecological vs. historical approaches; vicariance biogeography (DRL)</a> </td>
+	<td valign="top">TBA</td>
+	<td valign="top"><a href="labs/">LAB #15: Biogeographic software; DIVA, Lagrange</a></td>
+</tr><tr>
+  <td valign="top">Tuesday, April 19 </td>
+  <td valign="top"><a href="lect/">Biogeography II -- New tools, databases, and research possibilities (Matzke)</a> </td>
+	<td valign="top">TBA</td>
+	<td valign="top">LAB: discuss progress on projects in class (hand in outline of project April 18th, details TBA)</td>
+</tr><tr>
+  <td valign="top">Thursday, April 21 </td>
+  <td valign="top"><a href="lect/">Interactions among clades in macroevolution (DRL)</a></td>
+	<td valign="top">TBA</td>
+	<td valign="top">LAB: discussion of application papers (students to bring papers from their groups)</td>
+</tr><tr>
+  <td valign="top">Tuesday, April 26 </td>
+  <td valign="top"><a href="lect/">Phylogenies and Community Ecology; Assembly of Regional Biota (Ginger Jui)</a> </td>
+	<td valign="top">TBA</td>
+	<td valign="top">LAB #16: phylocom, picante (Matzke)</td>
+</tr><tr>
+  <td valign="top">Thursday, April 28</td>
+  <td valign="top"><a href="lect/">Glimpses of the future - comparative and functional genomics; integrating genetics, physiology, ecology and evolution (all)</a> </td>
+	<td valign="top">&nbsp;</td>
+	<td valign="top">LAB: <b>QUIZ 2</b></td>
+</tr>
+<tr></tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><tr>
+  <td valign="top">May 2-13 </td>
+  <td colspan=3 valign="top"><i>Reading &amp; Finals Weeks</i> - Student Symposium will be <b>at: <i>VLSB 2063, TBA.</i></b> </td>
+</tr><tr>
+  <td valign="top">Wednesday, May TBA</td>
+  <td colspan=3 valign="top"><b>Final projects due at TBA.</b> </td>
+</tr>	
+</table>
+
+
+<!-- Signature -->
+
+<address>
+<!--#include file="signature.htm" -->
+</address>
+</body>
+</html>

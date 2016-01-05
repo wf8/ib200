@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<title>Past Quizzes: Integrative Biology 200</title>
+		<link href="IB200Style_1.css" rel="stylesheet">
+		<style type="text/css">
+		
+</style>
+	</head>
+
+	<body>
+		<!-- Site Navigation Menu -->
+		<!--#include file="menu.htm"-->
+		<!-- Body Text -->
+		<h1>Integrative Biology 200<br>
+			<small>Past Quizzes</small></h1>
+		<b>Quiz 1</b><br>
+			<p><a href="quizzes/200A_Quiz1_2012.pdf">Quiz 1 200A 2012</a></p>
+			<p><a href="quizzes/200B_Quiz1_2011.pdf">Quiz 1 200B 2011</a></p>
+			<p><a href="quizzes/200A_Quiz1_2010.pdf">Quiz 1 200A 2010</a></p>
+			<p><a href="quizzes/200B_Quiz1_2009.pdf">Quiz 1 200B 2009</a></p>
+			<p><a href="quizzes/200A_Quiz1_2008.pdf">Quiz 1 200A 2008</a></p>
+			<p><a href="quizzes/200B_Quiz1_2007.pdf">Quiz 1 200B 2007</a></p>
+			<p><a href="quizzes/200A_Quiz1_2006.pdf">Quiz 1 200A 2006</a></p>
+			<p><a href="quizzes/200B_Quiz1_2005.pdf">Quiz 1 200B 2005</a></p>
+			<p><a href="quizzes/200A_Quiz1_2004.pdf">Quiz 1 200A 2004</a></p>
+        	<p><a href="quizzes/200B_Quiz1_2003.pdf">Quiz 1 200B 2003</a></p>
+        	<p><a href="quizzes/200A_Quiz1_2002.pdf">Quiz 1 200A 2002</a></p>
+        	<p><a href="quizzes/200B_Quiz1_2001.pdf">Quiz 1 200B 2001</a></p>
+        	<p><a href="quizzes/200A_Quiz1_2000.pdf">Quiz 1 200A 2000</a></p>
+        	<p><a href="quizzes/200A_Quiz1_1998.pdf">Quiz 1 200A 1998</a></p>
+        	<p>&nbsp; </p>
+		<b>Quiz 2</b><br>
+			<p><a href="quizzes/200B_Quiz2_2011.pdf">Quiz 2 200B 2011</a></p>
+			<p><a href="quizzes/200A_Quiz2_2010.pdf">Quiz 2 200A 2010</a></p>
+			<p><a href="quizzes/200B_Quiz2_2009.pdf">Quiz 2 200B 2009</a></p>
+			<p><a href="quizzes/200A_Quiz2_2008.pdf">Quiz 2 200A 2008</a></p>
+			<p><a href="quizzes/200B_Quiz2_2007.pdf">Quiz 2 200B 2007</a></p>
+			<p><a href="quizzes/200A_Quiz2_2006.pdf">Quiz 2 200A 2006</a></p>
+			<p><a href="quizzes/200B_Quiz2_2005.pdf">Quiz 2 200B 2005</a></p>
+			<p><a href="quizzes/200A_Quiz2_2004.pdf">Quiz 2 200A 2004</a></p>
+			<p><a href="quizzes/200A_Quiz2_2002.pdf">Quiz 2 200A 2002</a></p>
+			<p><a href="quizzes/200B_Quiz2_2001.pdf">Quiz 2 200B 2001</a></p>
+       	
+		<!-- Signature -->
+		<address>
+		<!--#include file="signature.htm" -->
+		</address>
+	</body>
+
+</html>

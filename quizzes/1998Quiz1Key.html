@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+
+
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 (Macintosh; I; PPC) [Netscape]"><title>Quiz Key</title></head><body alink="#0000ff" bgcolor="#ffffff" link="#0000ff" text="#000000" vlink="#551a8b">
+<b>IB 200A Phylogenetics Quiz KEY</b>
+<p>Bivariate Plot (3 points): Two variables plotted against one another
+onan x,y coordinate graph. Correlation or regression analysis can be used
+toobtain correlations. Correlations may be used to compare two variables,potentially
+eliminating character dependency problems in a phylogeneticanalysis.
+<br>&nbsp;
+<br>&nbsp;
+</p><p>Procrustes analysis (3 points): This is a least squares fittingprocedure.
+A configuration of landmarks may be used as a reference, while asecond
+configuration is scaled, translated and rotated until the sum of thesquared
+differences in the positions of homologous landmarks is as small aspossible.
+The procrustes distance coefficient obtained from the analysis ofrelationships
+between pairs of configurations can then be used as a measureof their difference.
+A difference matrix (from comparisons of differentlandmark configurations
+may then be assembled and analyzed using PCA orsome other multivariate
+analysis.
+<br>&nbsp;
+</p><p>Thin Plate Spline (TPS)(3 points): TPS is a multivariate morphometricapproach
+that allows the morphometrician to use principal warps as featuresdescribing
+landmarks from a reference configuration. It's a kind of shapesummarization
+method and a good way to generate independent, potentiallyhomologous characters
+for use in phylogenetic analyses.
+</p><p>Configurations of landmarks may be broken down into linear (affine)
+and
+<br>nonlinear (nonaffine) parts. Principal warps are eigenvectors (independent,
+<br>nonlinear functions) taken from the configuration of landmarks. The
+<br>nonlinear elements of the landmark configurations are TPS's of weighted
+<br>sums of principal warps. (see Rohlf, 1990 and various Bookstein
+<br>publications).
+</p><p>2) The pheneticist, cladist, and the evolutionary Biologist (6
+<br>points):
+</p><p>On reconstruction of relationships:
+</p><p>P = overall similarity will resolve relationships
+</p><p>C = special similarity -- synapomorphy
+</p><p>EB = overall similarity in "adaptive specializations"
+</p><p>3) UPGMA tree's branch lengths will not agree with branch lengths computeddirectly
+form the distance matrix-- UPGMA (unweighted pair group methodusing arithmetic
+averages) starts with a table of distances between OTU's(the distances
+are measured in various ways - one example being numbers ofsubstitutions
+per sequence position). The two closest OTU's are found andjoined - the
+branch length (or branch depth) between them is taken to behalf the value
+of their distance difference. Once joined, the two taxa arethen merged
+into a cluster in a modified distance matrix and theirdistances to all
+other taxa are averaged. The original distance data arereplaced by averages
+(each taxon in the original data table contributesequally to the averages
+- hence, unweighted).
+</p><p>4) Agglomerative versus divisive clustering methods. As simply put aspossible,
+agglomerative clustering is a pairwise procedure which startswith a set
+of separate OTU's (or any number of separate "entities") andthen groups
+stepwise until a single set containing all OTU's obtains.Divisive methods
+start with all OTU's in a single set (star-like network)and subdivides
+into subsets.
+</p><p>The concepts are simple, but there may be some confusion as to what
+bestexemplifies these clustering techniques. UPGMA is a good example of
+theagglomerative method. However, NJ may not be a good example of divisive.
+InKim et al., 1993 you will find the NJ algorithm referred to as similar
+tothe agglomerative clustering methods described by Sneath and Sokal, 1973.This
+is because of the following: NJ begins with matrix of distances amongOTU's
+and an unresolved "star-tree." The algorithm pulls out the twoclosest pairs
+after averaging them together to create an HTU. Eachsubsequent HTU will
+represent the two previous closest pairs until only oneOTU remains and
+the star phylogeny is totally resolved. As such it is astep-wise/pairwise
+method.
+</p><p>Some good examples of divisive methods include dissimilarity analysis(MacNaughton-Smith
+et al., 1964) and association analysis (Williams andLambert, 1960, 1961)
+although these techniques are very "old school".
+</p><p>Take a look at Sokal and Sneath's Numerical Taxonomy (1973) - perhaps
+thebest reference you will find regarding this question.
+</p><p>5.) Good taxonomic character (20 points):
+</p><p>a) heritable
+</p><p>b) independent of other characters
+</p><p>c) discreet states (a system of at least two transformational homologs)
+</p><p>d) character varies more among than within OTU's
+</p><p>e) varies at a reasonable rate (not too fast, not too slow) (Albert
+et al.,
+<br>1992)
+</p><p>f) good potential for putative homology (i.e., complexity, many potentialcharacter
+states -- note difficulty in finding homologous sites in sequenceanalysis)
+</p><p>[+ Molecules vs. morphology for each]
+</p><p>6.) Compatibility analysis vs. Parsimony. (5 points) The largest cliqueof
+compatible characters will automatically remove all homoplasticcharacters
+and generate a single tree. One tree, no homoplasy - by the ruleof clique
+analysis, characters can change only once. Parsimony deals withall of the
+characters, but merely minimizes homoplasy.
+</p><p>A character is compatible if it needs no more than its minimum number
+ofevolutionary steps (k-1) when fitted in turn to all character state treesdrawn
+from each other character in the analysis. If there are x numbers ofcharacters
+(binary), there will be x number of binary character statetrees. Therefore,
+compatibility analysis may be using only a small fractionof the available
+characters and thus differ from the parsimony tree.
+</p><p>7.) Short definitions (10 points)
+</p><p>DNA hybridization: This 'whole genome' summary approach is intrinsicallya
+distance measurement. DNA is obtained and then sheared to get singlestranded
+DNA. That strand is radioactively labeled with radioactive iodineand hybridized
+with a "tester" DNA. if they are similar, they will anneal.Then, the hydrid
+DNA is denatured by heating. Temperature a% DNA break upare monitored.
+The temperature at which 50% of the DNA breaks up is ameasurement index
+of how similar the strands are.
+</p><p>This is phenetic technique. No individual characters. No assessments
+ofpositional homology. No understanding of character independence, etc.Step
+Matrix: Weighting character states based on extrinsic a priori data.For
+example, transitions are known to occur more frequently thantransversions,
+G&amp;C are known to be more prevalent, 3rd positions changemore readily
+than 1st or 2nd, etc. these extrinsic pieces of evidence maybe plugged
+into the matrix as a state - weight scheme. (cf. Albert, et al.,1992)
+</p><p>Manhattan distance: "City block" distances between character states.Using
+manhattan distance over Euclidean ensures that one will pass throughreal
+data space when reconstructing ancestral/nodal characters (HTU's).
+</p><p>Retention Index: A measurement of character fit to a tree (established
+byFarris).
+Better than a CI (minimum possible length of tree/actual treelength), since
+CI does not remove autapomorphies (which have an automaticCI of 1.0) and
+is highly correlated with the number of taxa in a data set.The retention
+index = g-s/g-m; the minimum number of steps in a starphylogeny minus the
+total number of steps on parsimony tree divided by theminimum number of
+steps in a star phylogeny minus the minimum number ofsteps possible (number
+of character states -1; k-1). The retention index isthe fraction of apparent
+synapomorphy in the character that is retained assynapomorphy on the final
+tree.
+</p><p>Transversion: purine (A,G) &lt;--&gt; pyrimidine (C,T) changes
+</p><p>Character weighting: Increasing the "vote" of one character over another-
+done best on the basis of extrinsic evidence. Depends on a hypothesis ofgreater
+probability of change in some characters relative to others.
+</p><p>Epistemology: the HOW as opposed to the WHY (ontology). Empiricism.
+</p><p>Alternating sister group law. When using a series of outgroups - if
+thefirst and last outgroup have the same state, that state is the mostparsimonious
+assignment to the outgroup node; if they differ, the decisionis equivocal.
+(see Maddison et al., pg. 88)
+</p><p>Dollo parsimony: Gains happen once only and losses by reversal areallowed
+to explain the data (that, parallel or convergent gains of derivedstates
+cannot be invoked). Requires specification of polarity (to know whatstates
+are gained), and is generally considered unnecessarily strict andunrealistic.
+</p><p>Median state Rule: When creating a hypothetical taxonomic unit (HTU)
+fromits three joined taxa in a tree, the state assignments are based onmajority
+rule. If the three connected states for a particular character are110 then
+the state for the HTU will be 1. If all states differ (012, forexample)
+the median value or intermediate state will be assigned to the HTU(1).
+</p><p>8) Maximum likelihood vs. Max Parsimony:
+<br>Inductive vs. deductive. The latter is an optimality criterion which
+prefers minimal tree length. It isa deductive summary of the data matrix
+which (when taken as a model of aphylogenetic tree) assumes that apparent
+homology is more likely to be truehomology, than homoplasy. If characters
+are heritable, independent, andvarying at some informative rate (less than
+the rate of bifurcation - so asto avoid the "Felsenstein zone" (cf. question
+10), for example), it followsthat one change on one branch is more likely
+than two on differentbranches. (Mishler, 1994)
+</p><p>Max likelihood is an inductive statistical procedure that maximizes
+theprobability of observing the data obtained (the sequences at the tips
+of aphylogeny), with respect to some explicit model of evolution. ML thusrequires
+additional assumptions about the data to maximize the probabilityof its
+occurrence given the tree. (refer to Chapter 11 of MolecularSystematics
+(Hillis et al., 1996) pg. 428 for a review of Olsen's lectureon ML! Also
+take a look at Siddall and Kluge. 1997. Probabilism andphylogenetic inference.
+Cladistics 4: 313-336 for a very interesting lookat this dichotomy in systematic
+approaches! Also take a look at JohnHuelsenbeck's web site (http://mw511.biol.berkeley.edu/)
+</p><p>Strict vs. majority consensus: The former will collapse all branches
+inconflict within a set of most parsimonious trees. The latter will keepthose
+branches which are consistent among 50% or more of the mostparsimonious
+trees. The argument for majority rule consensus that itconserves potentially
+important data (potentially true monophyleticgroups).
+</p><p>Taxic vs. Transformational homology: The former are synapomorphies -that
+is shared, derived features of the OTU's in question. Transformational
+homologies are those which are evident in ancestral-descendant lineages.Taxic
+homologies reveal monophyly while transformational homologies revealpolarity.
+If you shift your time horizon however, a transformational homology may
+be taxic or a taxic transformational.
+</p><p>Decay vs. Bootstrap: Decay indices report the degree to which parsimonycould
+be relaxed before particular monophyletic groups collapse. If a certain
+monophyletic group is present in all trees 5 steps longer than themost
+parsimonious tree, but not in all trees 6 steps longer, then it issaid
+to have a decay index of 6. Bootstrapping is a statistical procedurethat
+randomizes the data matrix and redraws trees based on the reconfigured
+matrices. If a monophyletic groups appears in 90% of the permutations,
+it is said to have a bootstrap of 90%.
+</p><p>Lundberg Rooting vs Outgroup Rooting: Lundberg rooting uses an inferredancestor
+only to root the ingroup network (at the place where the ANC would join),
+thus is more local. Outgroup rooting incorporates the outgroups asOTUs
+in the analysis along with the ingroup OTUs, thus is more global.
+</p><p>9) Quantitative characters. (10 points) Difficult to use because we
+needevidence of discrete transformational homology, corresponding to discreteevents
+that occurred along lineages in the past and can serve as markersfor that
+branch in the present (=taxonomic character). Monophyly is based on a discrete
+event (bifurcation) and needs a discrete marker, but incontinuous characters
+this is hard to see. Need to use ANOVA to see if variation between OTUs
+is more than that within OTUs.
+</p><p>10) Problems with inconsistency. (10 points) Tree "C" -- long branchattraction
+will cause two lower branches to join, due to accumulatedhomoplasy. This
+problem arises when two or more non-sister branches aremuch longer than
+intervening ones. The problem is worse at higher overall rates of change
+and with fewer character states.
+<br>&nbsp;
+
+</p></body></html>
