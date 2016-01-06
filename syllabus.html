@@ -3,36 +3,56 @@
 <html>
 <head>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8">
-		<title>Syllabus and Handouts -- Integrative Biology 200 -- Principles of Phylogenetics: Ecology and Evolution</title>
-<link rel="stylesheet" href="style.css">
+		<title>Integrative Biology 200 - Syllabus and Handouts</title>
+
+        <link href="assets/style.css" rel="stylesheet">
+        <link href="assets/bootstrap.css" rel="stylesheet">
 </head>
 
 
 <body>
-<!-- Site Navigation Menu -->
 
-<!--#include file="menu.html"-->
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="readings.html">Recommended Readings</a></li>
+            <li><a href="quizzes.html">Past Quizzes</a></li>
+            <li><a href="links.html">Useful Links</a></li>
+         </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
 
 <!-- Body Text -->
-
+<br><br>
 <h1>Integrative Biology 200<br/>
-<small>Principles of Phylogenetics: Ecology and Evolution<br /><br />
-Syllabus and Handouts</small></h1>
+<small>Syllabus and Handouts</small></h1>
 
-<b>Syllabus</b> <a href="IB200_2014_syllabus.pdf">pdf</a><br>
-<br>
-<table width="1123" border="3" 
-cellpadding="5"
-bgcolor="white">
+<br><br>
+Download syllabus as <a href="IB200_2014_syllabus.pdf">pdf</a>.<br>
+<table class="table table-bordered table-striped">
+<thead>
 <tr>
-  <td width="50" valign="top"><b>Date</b> </td>
-  <td width="100" valign="top"><b>Lecture</b> </td>
-  <td width="200" valign="top"><strong>Assigned Readings
-  <br>
-  (see also <a href="readings.shtml">Recommended Readings</a> by topic)</strong></td>
-  <td width="170" valign="top"><b>Lab</b> </td>
+  <td valign="top"><b>Date</b> </td>
+  <td valign="top"><b>Lecture</b> </td>
+  <td valign="top"><strong>Required Readings<br>
+        (see also <a href="readings.html">Recommended Readings</a> by topic)</strong></td>
+  <td valign="top"><b>Lab</b> </td>
 </tr>
-
+</thead>
 <tr>
   <td valign="top">Wednesday, Jan. 22</td>
   <td valign="top"><a href="IB200_2014_syllabus.pdf">Introduction - contemporary issues in phylogenetics (syllabus)</a></td>
@@ -520,8 +540,12 @@ of Some Computer Packages. <i>Molecular Biology and Evolution</i>, 13(2), 309-31
 	(see <a href="IB200_Quizzes.shtml">past quizzes</a>)
 	</td>
 </tr>
-
-<tr></tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><tr></tr>
+<!--
+<tr>
+<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+<tr>
+-->
+<tr>
   <td valign="top">May 5-16 </td>
   <td colspan=3 valign="top"><i>READING &amp; FINALS WEEKS</i></td>
 </tr>
@@ -529,7 +553,9 @@ of Some Computer Packages. <i>Molecular Biology and Evolution</i>, 13(2), 309-31
 <tr>
   <td valign="top">Monday, May 5</td>
   <td colspan=3 valign="top"><b>Course summary and perspectives on the future (all)</b> </td>
-  <tr>
+</tr>
+
+<tr>
   <td valign="top">Friday,<br /> May 9</td>
   <td colspan=3 valign="top"><b>Student minisymposium [location and time TBA]</b> </td>
 </tr>	
@@ -540,12 +566,15 @@ of Some Computer Packages. <i>Molecular Biology and Evolution</i>, 13(2), 309-31
 </tr>	
 	
 </table>
-
-
-<!-- Signature -->
-
+<br>
 <address>
-<!--#include file="signature.html" -->
+Background image adapted from <a href="https://dx.doi.org/10.1093%2Fbioinformatics%2Fbtl529">a phylogeny of all organisms with complete genome sequences</a>.</i><br>
+<br>
+Last update Spring 2016 by <a href="http://willfreyman.org">Will Freyman</a><br>
 </address>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="assets/bootstrap.min.js"></script>
+
 </body>
 </html>

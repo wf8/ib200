@@ -1,5 +1,6 @@
 body {
     padding-left: 12em;
+    padding-right: 12em;
 	padding-top: 3em;
     font-family: Helvetica, Arial, sans-serif;
 	color: black;
@@ -14,13 +15,13 @@ p {
     /* background: white; */
     background: rgba(255,255,255,0.8);
 	margin: 0.5em ; 
-	padding: 0.3em;
+	/* padding: 0.3em; */
 	width: 40em;
 }
 h1 {
     font-family: Helvetica, Arial, sans-serif;
-    width: 13em;
-	padding: 0.3em;
+    width: 13em; 
+/*	padding: 0.3em; */
 	color: #000000;
 }
 ul.navbar {
