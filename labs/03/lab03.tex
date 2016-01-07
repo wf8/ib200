@@ -1,0 +1,263 @@
+\documentclass[11pt]{article}
+
+% import packages
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage[style=authoryear-comp,firstinits=true,maxnames=100,maxcitenames=2]{biblatex}
+%  \addbibresource{proposal.bib}
+\usepackage[font=footnotesize]{caption}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+  \geometry{margin=1in}
+\usepackage{framed}
+\usepackage[breaklinks]{hyperref}
+\usepackage{minibox}
+\usepackage[compact]{titlesec}
+
+\graphicspath{ {./figures/} }
+
+
+
+
+\begin{document}
+
+
+\noindent
+\large
+\begin{minipage}{0.5\textwidth}
+\begin{flushleft} 
+IB200, Spring 2016
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{flushright} 
+\textit{University of California, Berkeley}
+\end{flushright}
+\end{minipage}
+
+\vspace{0.5cm}
+
+
+\begin{center}
+\Large \textbf{Lab 03:} \\
+Introduction to GenBank, BLAST, and FASTA files; \\
+sequence analysis and alignment \\
+\normalsize
+\textit{Updated by Will Freyman}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Before you begin}
+
+\subsection{Software needed}
+
+Please download and install the following software:
+\begin{enumerate}
+  \item MUSCLE: \url{http://www.drive5.com/muscle/}
+  \item MAFFT: \url{http://mafft.cbrc.jp/alignment/software/}
+  \item AliView: \url{http://www.ormbunkar.se/aliview/}
+\end{enumerate}
+
+%\begin{verbatim}
+%text editor
+%Mesquite
+%FigTree
+%\end{verbatim}
+
+\section{Introduction}
+
+Today we will examine tools that are useful for obtaining and preparing
+molecular sequence data for phylogenetic analysis. \textbf{GenBank} is the NIH sequence
+database. It contains sequence data
+for over 100,000 species, 
+including over 150 billion nucleotide bases in more than 162 million sequences.
+\textbf{BLAST} is one of the most useful tools for working with molecular data; 
+it allows a user to compare a query sequence against a database of sequences.
+Using BLAST, we will download sequences from GenBank in both \textbf{FASTA} and GenBank formats
+and align the sequences using two different alignment algorithms.
+
+
+
+\section{NCBI Databases}
+
+
+The National Center for Biotechnology Information (NCBI) is the branch of the NIH
+that houses GenBank. We'll take a quick look at two of NCBI's databases:
+the \textbf{Taxonomy} database and GenBank's \textbf{Nucleotide} database.
+Note that there are many, many other resources!
+
+Go to \url{http://www.ncbi.nlm.nih.gov/taxonomy}. 
+Look up your favorite taxon.
+Also skim over the NCBI Taxonomy Handbook
+\url{http://www.ncbi.nlm.nih.gov/books/NBK21100/}.
+
+\begin{framed}
+\noindent
+\textbf{Question 1:} \\
+What is the \textit{Taxonomy ID} of your taxon? 
+How many \textit{Nucleotide} records are there for the taxon (see the box on the right side of the scree)?
+Explain the disclaimer at the bottom of the page.
+How is this taxonomy built?
+What kind of classification system is used by NCBI Taxonomy?
+\end{framed}
+
+Back on the NCBI Taxonomy page of your favorite taxon, click
+on the link to the \textbf{Nucleotide} records.
+You'll now see a list of all the nucleotide sequences
+for your taxon.
+Each sequence is listed by its accession number, and information about the taxon, gene, etc. is also provided. 
+
+Follow the link for one of the sequences you've found. 
+A new page with various information about the authors of the sequence, the taxon, gene, where it was published, etc. will appear. 
+At the bottom of the page you will find the sequence itself. 
+Near the top of the screen, you can see that there are several options for displaying and saving the sequence. 
+Check out some of the display options (choose them from the pull-down menu and then push apply), but don't bother saving anything for now. 
+If you're looking for sequences by a particular author or a particular gene, 
+you can also type in those or any combination of them and do a search. 
+Pick a sequence that you think would be a good one to use in a phylogenetic analysis of your group 
+(e.g., a sequence that looks like it has been sequenced in many of the relevant species, that is conserved, named, etc.).
+Figure out how to download the sequence as both a FASTA file and a GenBank formatted file on your computer.
+Open the two files in a plain text editor.
+
+\begin{framed}
+\noindent
+\textbf{Question 2:} \\
+When might you want to use the full GenBank format instead of a FASTA file?
+Think about what extra information is stored in the GenBank file compared to the FASTA file.
+\end{framed}
+
+
+\section{BLAST}
+Now we'll try a BLAST search on the sequence you just found. 
+BLAST searches are useful for finding sequences similar to one you have generated or found. 
+The BLAST algorithm is a less accurate but much faster approximation of the \textbf{Smith-Waterman algorithm}:
+\url{https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm}.
+Open the BLAST homepage in a new window \url{http://blast.ncbi.nlm.nih.gov/Blast.cgi}, 
+and then click on the \textit{nucleotide blast}. 
+This is the option for searching for nucleotide sequences with a nucleotide sequence, 
+but other options (such as searching for translated sequences, 
+searching within the human genome, or searching for really close matches quickly) are available.
+
+Now copy the sequence you found in GenBank, go back to the BLAST site and paste it into the search box. 
+Pick an appropriate database to search.
+
+\begin{framed}
+\noindent
+\textbf{Question 3:} \\
+What does BLAST stand for? 
+What decision are you making by searching for sequences with the BLAST algorithm instead of some other algorithm. 
+(hint: consider what the \textit{LA} means, and see \url{https://en.wikipedia.org/wiki/Sequence_alignment#Global_and_local_alignments}).
+What's the default database? What database did you decide was appropriate to search?
+\end{framed}
+
+When you've done that push the BLAST button. The search may take a couple of minutes, so be patient.
+Once the search is done, you can check out which sequences were found that generated 
+significant alignments with your query sequence by scrolling down the page. 
+You can also see the alignments with these sequences that the BLAST algorithm generated as well. 
+There is a graphical representation (near the top of the results page) 
+that shows where the various hits could be aligned with the query sequence and how good that alignment is.
+How many hits did you get? Did the taxa that 'should' have been the closest phylogenetic relatives, 
+based on taxonomy, all come up as the closest matches to your sequence? If not, what are some possible reasons why not?
+
+\begin{framed}
+\noindent
+\textbf{Question 4:}
+\begin{enumerate}
+    \item What does \textit{e-value} stand for? (look it up online if necessary)
+    \item What does that value mean?
+    \item What is a good e-value, and what is a bad e-value?
+    \item Does an e-value represent Manhattan distance or Euclidean distance between two sequences?
+\end{enumerate}
+\end{framed}
+
+
+\section{Sequence Alignment}
+
+
+Now use a manageable number of your own sequences (say, 5 to 100),
+OR
+go back to the main GenBank web page, 
+and search in \textit{Nucleotide} for a taxonomic group that interests you.
+Make sure you only download data for the same gene region (eg. 18S, COI, etc.). 
+Again, keep the number of taxa reasonable (5 to 100). 
+Pick FASTA from the display menu and then \textit{file} from the \textit{Send} menu. 
+Save the file to your computer and rename it. (eg. my\_sequences.fasta)
+
+\subsection{AliView}
+
+There are many different alignment viewer and editor tools,
+but I like \textbf{AliView} because it is fast and not bloated
+with too many extra functions (like Mesquite or MEGA).
+Using AliView open up your FASTA file.
+Use the \texttt{-} and the \texttt{+} buttons
+to zoom in and out of the alignment.
+Take a look at the options under the \textit{Edit} menu
+such as \textit{Reverse Complement Selected Sequences}.
+
+Now that we have our sequences, we can do some aligning.
+We will practice using two alignment programs, 
+\textbf{MUSCLE} and \textbf{MAFFT}, using the command line
+(for Mac OSX and Linux machines). 
+Knowing the basics of using the command line is essential
+when using various bioinformatic software tools or writing
+your own scripts.
+If you have a Windows machine
+you can look at the alignment programs websites' for help,
+or use various online alignment resources such as
+\url{http://www.ebi.ac.uk/Tools/msa/muscle/}
+and \url{http://mafft.cbrc.jp/alignment/server/}.
+
+\subsection{MAFFT (Multiple Alignment using Fast Fourier Transform)}
+
+MAFFT uses a technique called progressive alignment construction.
+Read about this here: 
+\url{https://en.wikipedia.org/wiki/Multiple_sequence_alignment#Progressive_alignment_construction}.
+Open up a terminal window and navigate to the directory
+that you saved your FASTA file to. Enter the following
+command (changing the file names as necessary):
+
+\begin{verbatim}
+mafft --auto my_sequences.fasta > mafft_alignment.fasta
+\end{verbatim}
+
+\subsection{MUSCLE (multiple sequence alignment by log-expectation)}
+
+MUSCLE uses a sets of techniques called iterative alignment construction.
+Read about this here:
+\url{https://en.wikipedia.org/wiki/Multiple_sequence_alignment#Iterative_methods}
+Now perform the MUSCLE alignment with the following command:
+
+\begin{verbatim}
+ muscle -in my_sequences.fasta -out muscle_alignment.fasta
+ \end{verbatim}
+
+Compare the two alignments in AliView.
+To highlight differences, try clicking
+\textit{Highlight Non-consensus characters}.
+under the \textit{View} menu.
+If you want, you can set up AliView to use MUSCLE or MAFFT
+for aligning under the \textit{Align} menu.
+
+\begin{framed}
+\noindent
+\textbf{Question 5:} \\
+Do you see any differences between the two alignments?
+Both methods use distance-based \textit{guide trees} to build alignments.
+Do you think using guide trees to build alignments,
+which are then used to build trees, is circular logic? Explain.
+\end{framed}
+
+\begin{framed}
+\noindent
+\textbf{Please email me the following:}
+\begin{enumerate}
+  \item The answers to questions 1-5.
+  \item A copy of your two FASTA alignments (MUSCLE and MAFFT).
+\end{enumerate}
+\end{framed}
+
+\printbibliography
+
+\end{document}
+
