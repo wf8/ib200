@@ -1,0 +1,143 @@
+#NEXUS 
+
+[!This data file contains a matrix of morphological characters from a small group of ground beetles from the New World.
+
+From:
+
+Ball, G.E., and D.R. Maddison, 1987. Classification and evolutionary aspects of the species of the New World genus Amblygnathus Dejean, with description of Platymetopsis, new genus, and notes about selected species of Selenophorus Dejean (Coleoptera: Carabidae: Harpalini). Transactions of the American Entomological Society, 113: 189-307.
+]
+
+BEGIN DATA;
+	DIMENSIONS  NTAX=29 NCHAR=28;
+	FORMAT SYMBOLS= " 0 1 2 3 4 5 6" MISSING=? GAP=- ;
+	CHARSTATELABELS  
+  1  m.l._vent._flange / absent present,
+  2  elyt._micro. / isodiametric transverse,
+  3  body_length / '4.5-6.2mm' '6.3-7.0mm' '7.7-11.0mm' '>12.0mm',
+  4  pron._hind_ang. / rounded subangulate angulate,
+  5  #_int_sac_spines / none one two numerous,
+  6  spine_size / absent small medium large,
+  7  'spine loc''n' / absent scattered 'ventro-med' 'ventro-bas',
+  8  prostern._process / not ridged,
+  9  head_micros. / isodiam 'iso-transv' transv,
+  10  elytral_vest. / '7-9_+_ap1-6' '8-9_+_ap1-7' '9_+_ap1-8' '8-9' 9th 'ap_1-8' none,
+  11  'head + pron color' / black rufous metal. 'bl_+_flavous',
+  12  clypeal_margin / ±_straight concave,
+  13  left_mand._apex / normal broad,
+  14  spermatheca / short_curve long_coil,
+  15  male_lamina_width / broad narrow,
+  16  lamina_length / long moderate short absent,
+  17  lam._apex_dir. / straight right dorsal,
+  18  apex_shape / pointed blunt,
+  19  m.l._apex_form / v._short mod_straight long sinuate,
+  20  m.l._flange_bilo / not bilobed,
+  21  dorsal_flange / absent v._small small large,
+  22  female_terg.8_setae / absent present,
+  23  sac_microtrich. / normal enlarged,
+  24  leg_color / flavous black,
+  25  'm.l. vent.-sculp.' / smooth serrate,
+  26  elytral_color / black metallic bicolored,
+  27  'm.l. vent.-form' / tapered spatulate,
+  28  pron._base / constrict. moderate broadened
+		;
+
+MATRIX
+
+'seriatoporus-g'    1010331003000001101020000001
+'ellipticus-g'      1001000102000000101020000001
+'amaroides-g'       1101000115000000101020000001
+'ruficollis-g'      0102311006100000101020000001
+iripennis           0101132010011100101020000001
+mexicanus           0100222010011100102030000001
+interior            0100222010011100102011000001
+evansi              0100222013011101101011000001
+panamensis          0101222010011100001011000001
+fricki              010122201001110020101?000001
+woodruffi           0101222020011101101011000001
+puncticollis        0100222020011101101011000001
+tikal               0102212012011102011021000001
+subtinctus          0102222010011102011011000001
+whiteheadi          01022120120111?3??1?01000001
+g.gilvipes          01011120100111?3??1021100001
+g.peruanus          01011120100111?3??1021100001
+xingu               110111201601111201012?100001
+braziliensis        1101113016011112011020101001
+suturalis           1111112021311112011020101201
+geminatus           0101112010011112011021100001
+darlingtoni         01011120100111120?0011100011
+bicolor             01022120101111120?0011100011
+corvinus            0121112014010110012020011002
+cephalotes          1121000010010110013021010001
+gigas               1131000010010110013021010001
+reichardti          1121000024210110012021010101
+lucidus             1121000024210110012021010101
+janthinus           1121000026210110012021000100
+;
+END;
+
+
+BEGIN ASSUMPTIONS;
+	OPTIONS  DEFTYPE=unord PolyTcount=MINSTEPS ;
+	TYPESET * UNTITLED  = unord: 7 11 26, ord: 1-6 8-10 12-25 27-28;
+END;
+
+
+BEGIN TREES; 
+
+[!The 21 trees contained in this file are most probably all the most parsimonious trees for this data set as inferred by the software PAUP.]
+	TRANSLATE
+		1	'seriatoporus-g',
+		2	'ellipticus-g',
+		3	'amaroides-g',
+		4	'ruficollis-g',
+		5	iripennis,
+		6	mexicanus,
+		7	interior,
+		8	evansi,
+		9	panamensis,
+		10	fricki,
+		11	woodruffi,
+		12	puncticollis,
+		13	tikal,
+		14	subtinctus,
+		15	whiteheadi,
+		16	g.gilvipes,
+		17	g.peruanus,
+		18	xingu,
+		19	braziliensis,
+		20	suturalis,
+		21	geminatus,
+		22	darlingtoni,
+		23	bicolor,
+		24	corvinus,
+		25	cephalotes,
+		26	gigas,
+		27	reichardti,
+		28	lucidus,
+		29	janthinus
+	;
+	TREE PAUP_1 =  [&R] (1,(((2,3),(((((((((((5,6),7),(8,(11,12))),10),9),((13,15),14)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_2 =  [&R] (1,(((2,3),((((((((((((5,6),7),(8,(11,12))),10),9),14),(13,15)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_3 =  [&R] (1,(((2,3),(((((((((((((5,6),7),(8,(11,12))),10),9),14),(13,15)),23),22),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_4 =  [&R] (1,(((2,3),((((((((((5,6),(7,(8,(11,12)))),10),9),((13,15),14)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_5 =  [&R] (1,(((2,3),((((((((((5,6),7,(8,(11,12))),10),9),((13,15),14)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_6 =  [&R] (1,(((2,3),(((((((((5,6),(7,(8,(11,12))),10),9),((13,15),14)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_7 =  [&R] (1,(((2,3),((((((((((5,6),10),(7,(8,(11,12)))),9),((13,15),14)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_8 =  [&R] (1,(((2,3),((((((((5,((6,7),(8,(11,12))),10),9),((13,15),14)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_9 =  [&R] (1,(((2,3),(((((((((5,10),((6,7),(8,(11,12)))),9),((13,15),14)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_10 =  [&R] (1,(((2,3),(((((((((((5,6),(7,(8,(11,12)))),10),9),14),(13,15)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_11 =  [&R] (1,(((2,3),(((((((((((5,6),7,(8,(11,12))),10),9),14),(13,15)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_12 =  [&R] (1,(((2,3),((((((((((5,6),(7,(8,(11,12))),10),9),14),(13,15)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_13 =  [&R] (1,(((2,3),(((((((((((5,6),10),(7,(8,(11,12)))),9),14),(13,15)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_14 =  [&R] (1,(((2,3),(((((((((5,((6,7),(8,(11,12))),10),9),14),(13,15)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_15 =  [&R] (1,(((2,3),((((((((((5,10),((6,7),(8,(11,12)))),9),14),(13,15)),(22,23)),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_16 =  [&R] (1,(((2,3),((((((((((((5,6),(7,(8,(11,12)))),10),9),14),(13,15)),23),22),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_17 =  [&R] (1,(((2,3),((((((((((((5,6),7,(8,(11,12))),10),9),14),(13,15)),23),22),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_18 =  [&R] (1,(((2,3),(((((((((((5,6),(7,(8,(11,12))),10),9),14),(13,15)),23),22),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_19 =  [&R] (1,(((2,3),((((((((((((5,6),10),(7,(8,(11,12)))),9),14),(13,15)),23),22),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_20 =  [&R] (1,(((2,3),((((((((((5,((6,7),(8,(11,12))),10),9),14),(13,15)),23),22),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+	TREE PAUP_21 =  [&R] (1,(((2,3),(((((((((((5,10),((6,7),(8,(11,12)))),9),14),(13,15)),23),22),(16,17),21),20),(18,19)),(24,((25,26),(27,28,29))))),4));
+
+END;
+
+
