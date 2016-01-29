@@ -1,0 +1,471 @@
+\documentclass[11pt]{article}
+
+\usepackage{filecontents}
+\begin{filecontents}{\jobname.bib}
+@article{felsenstein1981evolutionary,
+  title={Evolutionary trees from DNA sequences: a maximum likelihood approach},
+  author={Felsenstein, Joseph},
+  journal={Journal of molecular evolution},
+  volume={17},
+  number={6},
+  pages={368--376},
+  year={1981},
+  publisher={Springer}
+}
+@article{kimura1980simple,
+  title={A simple method for estimating evolutionary rates of base substitutions through comparative studies of nucleotide sequences},
+  author={Kimura, Motoo},
+  journal={Journal of molecular evolution},
+  volume={16},
+  number={2},
+  pages={111--120},
+  year={1980},
+  publisher={Springer}
+}
+@article{hasegawa1985dating,
+  title={Dating of the human-ape splitting by a molecular clock of mitochondrial DNA},
+  author={Hasegawa, Masami and Kishino, Hirohisa and Yano, Taka-aki},
+  journal={Journal of molecular evolution},
+  volume={22},
+  number={2},
+  pages={160--174},
+  year={1985},
+  publisher={Springer}
+}
+@article{jukes1969evolution,
+  title={Evolution of protein molecules},
+  author={Jukes, Thomas H and Cantor, Charles R},
+  journal={Mammalian protein metabolism},
+  volume={3},
+  pages={21--132},
+  year={1969},
+  publisher={New York}
+}
+@article{stamatakis2005raxml,
+  title={RAxML-III: a fast program for maximum likelihood-based inference of large phylogenetic trees},
+  author={Stamatakis, Alexandros and Ludwig, Thomas and Meier, Harald},
+  journal={Bioinformatics},
+  volume={21},
+  number={4},
+  pages={456--463},
+  year={2005},
+  publisher={Oxford Univ Press}
+}
+@article{huelsenbeck2004bayesian,
+  title={Bayesian phylogenetic model selection using reversible jump Markov chain Monte Carlo},
+  author={Huelsenbeck, John P and Larget, Bret and Alfaro, Michael E},
+  journal={Molecular Biology and Evolution},
+  volume={21},
+  number={6},
+  pages={1123--1133},
+  year={2004},
+  publisher={SMBE}
+}
+@article{guindon2010new,
+  title={New algorithms and methods to estimate maximum-likelihood phylogenies: assessing the performance of PhyML 3.0},
+  author={Guindon, St{\'e}phane and Dufayard, Jean-Fran{\c{c}}ois and Lefort, Vincent and Anisimova, Maria and Hordijk, Wim and Gascuel, Olivier},
+  journal={Systematic biology},
+  volume={59},
+  number={3},
+  pages={307--321},
+  year={2010},
+  publisher={Oxford University Press}
+}
+@article{sneath1957application,
+  title={The application of computers to taxonomy},
+  author={Sneath, Peter HA},
+  journal={Journal of general microbiology},
+  volume={17},
+  number={1},
+  pages={201--226},
+  year={1957},
+  publisher={Soc General Microbiol}
+}
+@article{darriba2012jmodeltest,
+  title={jModelTest 2: more models, new heuristics and parallel computing},
+  author={Darriba, Diego and Taboada, Guillermo L and Doallo, Ram{\'o}n and Posada, David},
+  journal={Nature methods},
+  volume={9},
+  number={8},
+  pages={772--772},
+  year={2012},
+  publisher={Nature Publishing Group}
+}
+\end{filecontents}
+
+\usepackage{natbib}
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage[font=footnotesize]{caption}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+  \geometry{margin=1in}
+\usepackage{framed}
+\usepackage[breaklinks]{hyperref}
+\usepackage{minibox}
+\usepackage[compact]{titlesec}
+
+\graphicspath{ {./figures/} }
+
+
+
+
+\begin{document}
+
+
+\noindent
+\large
+\begin{minipage}{0.5\textwidth}
+\begin{flushleft} 
+IB200, Spring 2016
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{flushright} 
+\textit{University of California, Berkeley}
+\end{flushright}
+\end{minipage}
+
+\vspace{0.5cm}
+
+
+\begin{center}
+\Large \textbf{Lab 05:} \\
+Maximum likelihood inference using PAUP* and jModelTest; \\ 
+RAxML and CIPRES supercomputer web interface \\
+\normalsize
+\textit{Updated by Will Freyman}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Before you begin}
+
+Please download:
+
+\begin{enumerate}
+  \item PAUP*: download the \textbf{command-line binary} (not the GUI version) at: \\ 
+        \url{http://people.sc.fsu.edu/~dswofford/paup_test/}
+  \item Primate mitochondrial DNA: \\
+        \url{http://ib.berkeley.edu/courses/ib200/labs/04/primate-mtDNA.nex}
+  \item jModelTest2: \\ 
+        \url{https://drive.google.com/folderview?id=0ByrkKOPtF_n_OUs3d0dNcnJPYXM#list}
+\end{enumerate}
+
+%\begin{verbatim}
+%text editor
+%Mesquite
+%FigTree
+%\end{verbatim}
+
+\section{Introduction}
+
+
+Maximum likelihood (ML) is a statistical method for reconstructing trees.  
+ML operates by trying to find the highest
+likelihood value of a data set given a phylogeny and a model of DNA sequence evolution.
+The tree with the highest likelihood value is considered the best tree.  
+When using ML to build trees, 
+we have to first select a model of DNA sequence evolution. 
+Let's do this first and then learn a bit more about ML and model selection while we wait for it to run.
+
+\section{ML model selection using jModelTest}
+
+jModelTest \citep{darriba2012jmodeltest} is a tool to carry out statistical selection of best-fit models of nucleotide substitution.
+jModelTest uses the program PhyML \citep{guindon2010new}
+to rapidly compute ML trees under a variety of different substitution models,
+and then provides different model selection strategies (such as AIC, BIC, likelihood-ratio tests)
+to pick the best fitting model.
+The ``best'' model and its parameter values can then be used in 
+in programs such as PAUP* or MrBayes to carry out more thorough tree searches.
+
+\subsection{Alternative approaches to jModelTest}
+
+Even if we have picked the ``best'' model for our data, this model may still not be a very good
+fit for the data, or there may be a number of models that fit equally as well.
+We can deal with uncertainty in model selection by averaging over all possible
+models during inference instead of conditioning over the single ``best'' model.
+This \textit{model averaging} approach is usually carried out in a Bayesian framework,
+so we won't cover it here. Read \citet{huelsenbeck2004bayesian} if you are interested.
+
+\subsection{jModelTest instructions}
+
+\begin{enumerate}
+
+\item Open jModelTest by clicking jModelTest.jar. The main window and menu should now be open.
+
+\item Select \textit{File - Load DNA Alignment} and then select your Nexus file (Use your own data or use the \textit{primate-mtDNA.nex} file).  jModelTest should have read the file and tells you how many sequences (basically how many OTUs) and how many sites (basically how many nucleotides) the file has.
+
+\item Now select \textit{Analysis - Compute likelihood scores}
+
+\item A new window should now pop up with several options to choose from.  Feel free to examine these different parameters on your own.  For now set the default settings and make sure under "Base tree for likelihood calculations" that \textit{ML Optimized} is selected. Click \textit{Compute Likelihoods}.
+
+\item Okay, let that run.  How fast it takes will depend on your computer and your data, but it will be at least a few minutes.  The program is computing likelihood scores for 88 different nucleotide substitution models.  Let's learn a bit more about these different models while we twiddle our thumbs and wait.
+
+\end{enumerate}
+
+
+\section{Models of Nucleotide Change}
+
+\subsection{The Transition Matrix}
+
+The transition matrix (as in transition from one character state to another, not as in transition/transversion) 
+is a matrix showing the instantaneous stochastic rate of change between any two nucleotide states. 
+The initial state of the nucleotide is the first column, and the final state is the top row 
+(these are not usually shown in the matrix).
+The matrix can be used to calculate the probability of one nucleotide changing into another on a branch with a given length.  
+The most unrestrained 12 parameter matrix would look like this:
+
+
+\[ Q = \left( \begin{array}{ccccc}
+  & A & C & G & T \\
+A &  - \alpha - \beta - \gamma  &  \alpha  &  \beta  &  \gamma  \\ 
+C &  \delta  &  - \delta - \epsilon - \zeta  &  \epsilon  &  \zeta  \\ 
+G &  \eta  &  \theta  &  - \eta - \theta - \iota  &  \iota  \\ 
+T &  \kappa  &  \lambda  &  \mu  &  - \kappa - \lambda - \mu  
+\end{array} \right)\]
+
+
+As you can see, the diagonals are all negative as each nucleotide will be changing away from itself at any instant, so that each row adds up to 0.  
+Furthermore, if the average rate of change of all the off diagonals was normalized to 1, you could eliminate a parameter for a total of 11 parameters.
+
+On the other hand, this is the transition matrix for the Kimura two parameter model:
+
+\[ Q = \left( \begin{array}{cccc}
+- \alpha - 2 \beta  &  \beta  &  \alpha  &  \beta  \\ 
+\beta  &  - \alpha - 2 \beta  &  \beta  &  \alpha  \\ 
+\alpha  &  \beta  &  - \alpha - 2 \beta  &  \beta  \\ 
+\beta  &  \alpha  &  \beta  &  - \alpha - 2 \beta   
+\end{array} \right)\]
+
+
+Here there are two parameters, transition and transversion rates, which can be reduced to just one by normalizing the matrix.
+
+Many programs (PAUP* included) can only calculate matrices with reversible models.  This means that change has an equal probability of happening in either direction on a branch.  Thus trees can be evaluated as unrooted networks, making the computationally-intensive likelihood calculations much easier.  For a model to be reversible it must be true that:
+
+\begin{equation*}
+\pi_i Q_{ij} = \pi_j Q_{ji}
+\end{equation*}
+
+where $Q_{ij}$ is the instantaneous rate of change from nucleotide $i$ to nucleotide $j$
+and $\pi_i$ is the equilibrium frequency of nucleotide $i$.
+The equilibrium frequency is the frequency of that nucleotide if the substitution process is allowed to run forever, and can be considered another parameter.
+So the General Time Reversible (GTR) matrix looks like:
+
+\[ Q = \left( \begin{array}{cccc}
+-  &  \pi_c r_{ac}  &  \pi_g r_{ag}  &  \pi_t r_{at}  \\ 
+\pi_a r_{ac}  &  -  &  \pi_g r_{cg}  &  \pi_t r_{ct}  \\ 
+\pi_a r_{ag}  &  \pi_c r_{cg}  &  -  &  \pi_t r_{gt}  \\ 
+\pi_a r_{at}  &  \pi_c r_{ct}  &  \pi_g r_{gt}  &  -  \\ 
+\end{array} \right)\]
+
+with the diagonal filled in appropriately, and where the terms $r_{ij}$ are called the \textit{exchangeability rates}.  The sum of the equilibrium frequencies for all four bases must equal one, so that there are three equilibrium frequency parameters.  Furthermore, one of the rate parameters can be eliminated by normalizing the matrix, leaving eight parameters total.  General Time Reversible (GTR) represents a family of nested models that encompass 64 models with different combinations of parameters.  Nested models are special cases of more general models.  
+Some of these nested models are named:
+
+\begin{itemize}
+
+\item JC : \citet{jukes1969evolution} - All nucleotide substitutions are equal and all base frequencies are equal. This is the most restricted (=specific) model of substitution because it assumes all changes are equal.
+
+\item F81 : \citet{felsenstein1981evolutionary} - All nucleotide substitutions are equal, base frequencies allowed to vary.
+
+\item K2P : \citet{kimura1980simple} - Kimura two-parameter model; two nucleotide substitutions types are allowed, those between transitions and transversions. Base frequencies are assumed equal.
+
+\item HKY85: \citet{hasegawa1985dating} - Two nucleotide substitutions types are allowed, those between transitions and transversions.  Base frequencies are allowed to vary.
+
+\end{itemize}
+
+
+\begin{framed}
+\noindent
+\textbf{Question 1:} \\
+Which of these models is the least complex?  Which of these models is the most parameter rich?
+\end{framed}
+
+\subsection{Commonly used model extensions}
+
+All of the above models are often extended to include the proportion of invariable sites $I$
+and among-site rate variation $\Gamma$.
+
+\subsubsection{Proportion of Invariable Sites $I$}
+
+This is a model that assumes some proportion of the sites, $p_i$, cannot change.  
+Thus it makes two calculations for each base pair.  
+First it calculates the probability, $\lambda_i$, that that base pair would have the observed distribution if it could not change.  
+This will be 1 if the base pair is the same in all taxa, or 0 if there are any differences among the taxa.  
+It then calculates the probability, $\lambda_v$ that it would have the observed distribution if it could change, 
+using the transition matrix and the tree.  
+Then it calculates the overall likelihood for that base as:
+\begin{equation*}
+\lambda = p_i \lambda_i + (1 - p_i) \lambda_v
+\end{equation*}
+
+\subsubsection{Among-site rate variation $\Gamma$}
+
+Under the null hypothesis, all sites are assumed to have equal rates of substitution.  One way of relaxing this assumption is to allow the rates at different sites to be drawn from a \textit{gamma distribution} (with the mean value across all sites within a class, such as A-T, represented in the substitution matrix).  The gamma distribution is used because the shape of the curve ($\alpha$ = shape parameter) changes dramatically depending on the parameter values of the distribution.  
+
+This calculation is done essentially the same way as it is for invariable sites.  
+The likelihood is calculated for each value of the gamma distribution for each base pair and added together.  
+In practice this is only done for a few values of the gamma distribution
+(a \textit{discretized gamma distribution}), 
+as there are an infinite number of possible values for the gamma distribution 
+and each likelihood calculation is computationally burdensome.  This serves as a good approximation of a true gamma distribution.
+
+
+\section{jModelTest continued}
+
+
+Once the program is finished computing the likelihood scores, we need a way to evaluate which one is best.  Adding parameters to a model always increases the maximum likelihood of the data.  However, if a model has too many parameters, then maximum likelihood becomes unreliable.  Therefore to accept a new parameter into your model it must produce a significant increase in the likelihood.  How do you tell if a difference in likelihood is significant?  We want the model that best explains our data without adding too many parameters.
+
+AIC and BIC are both methods that assess model fit by penalizing complex models (models with more parameters).
+This is necessary to avoid overfitting statistical models.
+
+The Akaike Information Criterion (AIC) can be thought of as the amount of information that is lost when we use 
+a specific model to approximate the real process of molecular evolution.  
+Basically AIC compares several candidate models simultaneously and is used to compare both nested and non-nested models.  
+It penalizes models 
+AICc is used to correct for small sample size.  AICc will approach AIC with larger sample sizes.
+
+The Bayesian Information Criterion (BIC) can be alternately used.  
+This criterion gives equal priors for all competing models and choosing the model with the smallest 
+BIC is equivalent to selecting the model with the maximum posterior probability. 
+(If you have never been introduced to Bayesian statistics, what I just said probably doesn’t make any sense to you.  
+Don’t worry, this will become clearer after we introduce Bayesian Inference next week.)
+
+\begin{enumerate}
+
+\item Click the \textit{Analysis} menu.  You’ll notice that you can now select ``Do AIC Calculations'', ``Do BIC Calculations'', or ``Do DT Calculations''
+
+\item Select \textit{Do AIC Calculations}.  Another window will pop up.  Select \textit{Use AICc correction}, \textit{Calculate parameter importances}, 
+        \textit{Do model averaging}, and \textit{Write PAUP* block}.  Select \textit{Do AIC calculations}.
+\item Select \textit{Results - Show results table}.  Click on \textit{AICc} and then select the \textit{AICc} column.  
+The chosen model has the lowest AICc score and will be highlighted.
+
+\end{enumerate}
+
+
+\begin{framed}
+\noindent
+\textbf{Question 2:} \\
+Which model was selected using AICc?  What is the likelihood value for this?  Use the BIC calculation (remember to select Write PAUP* block).  Was the same model selected as with AICc?  What is the likelihood value for this? What if these two criteria differ in their model selection?  
+\end{framed}
+
+\section{Maximum Likelihood (ML) in PAUP*}
+
+First let's use the parameter values chosen by jModeltest.
+In the jModeltest output file you will find a PAUP block that can be inserted directly into the Nexus file.  
+Scroll up in the window to find this for the AICc.  
+It will looks something like:
+
+\begin{verbatim}
+BEGIN PAUP;
+Lset base=(0.3585 0.3207 0.0844 ) nst=6  rmat=(2.0810 ... etc
+END;
+\end{verbatim}
+
+This block changes the Likelihood Settings \texttt{Lset}, 
+by setting the base frequencies at equilibrium \texttt{Base}, 
+the number of substitution types \texttt{Nst}, 
+the rate matrix of instantaneous substitution rates \texttt{Rmat}, 
+the among site rate variation \texttt{Rates}, 
+the shape of the gamma distribution \texttt{Shape}, 
+and the proportion of invariant sites \texttt{Pinvar}.
+
+
+Copy the PAUP block from the text file.  I also include the line above this \texttt{[! Likelihood settings ...etc]}. 
+Edit your Nexus file and paste the PAUP block from jModeltest directly into it. 
+It can go after any \texttt{END;} statement.  
+
+Execute the newly-edited sequence file in PAUP* again.  Change your working directory to a folder for the day if you'd like.
+
+Set the optimality criteria to likelihood, run a heuristic search, and then write your tree to a file with branch lengths.
+
+\begin{verbatim}
+paup> set criterion=likelihood
+paup> hs
+paup> savetrees file=aiccmltree.tre brlens
+\end{verbatim}
+
+\begin{framed}
+\noindent
+\textbf{Question 3:} \\
+Make another tree using the BIC PAUP block. Open the two trees in FigTree and send me a screenshot. 
+\end{framed}
+
+
+\section{CIPRES and RAxML}
+
+The CIPRES Science Gateway is a computational server that hosts popular phylogenetic research tools.  There are four necessary steps to use these tools:  Create an account, upload your data, submit your tasks, and analyze your output. 
+
+Go to the CIPRES Gateway website: \url{http://www.phylo.org/}
+
+If you have never used CIPRES, you'll need to register.
+Once you login, click on \textit{Toolkit} to see all the programs available.
+This will be very useful for your projects!
+
+RAxML (Randomized Axelerated Maximum Likelihood) is a program for ML inference of large phylogenetic trees.  
+This program employs heuristics to reduce likelihood search time including building an initial tree 
+under parsimony and incorporating a cooling schedule that allows ``backward steps'' 
+during the hill-climbing process (see \citet{stamatakis2005raxml} for more details).  
+RAxML also uses a model called GTRCAT that approximates the full GTR+$\Gamma$ model.
+Keep in mind that RAxML gets your likelihood tree quickly, 
+but does not search through tree space as rigorously -- there is always a trade-off.
+But RAxML is great for large datasets.
+
+RAxML requires a \textit{phylip} formatted file. Open your nexus file
+in AliView and select \textit{Save as Phylip (full names \& padded)}.
+
+\begin{framed}
+\noindent
+\textbf{Question 4:} \\
+Describe the Phylip file format for me.  What do the numbers at the top of the file indicate?
+\end{framed}
+
+
+Back in CIPRES, under the tab \textit{Home} create a new folder for today.  
+When you create the folder, you’ll notice that two subfolders are created ``Data'' and ``Tasks''.
+Select your \textit{Data} subfolder and upload the phylip file.
+
+Click on the \textit{Tasks} folder and the button \textit{Create New Task}.
+Give the task a description, and then
+under the \textit{Select Data} tab select your uploaded phylip file.
+Under the \textit{Select Tool} tab select \textbf{RAxML-HPC2 on XSEDE}.
+Now click on \textit{Set Parameters}. There are many options here and I won't go into all of them.  
+
+\begin{enumerate}
+\item  You can select the maximum number of hours you want to run the analysis. This is a small data set so the default of 0.25 right now is fine.
+\item  Sequence Type is Nucleotide
+\item  Set the outgroup as \texttt{Lemur\_catta}
+\item  Leave these defaults (explore these when you run your own analyses though)
+\item  Click \textit{Advanced Parameters} Nucleic Acid Options
+\item  Configure Bootstrapping - make sure \textit{Conduct Rapid Bootstrapping} is clicked.
+\item  Make sure \textit{Conduct a rapid Bootstrap analysis and search for the best-scoring ML tree in one single program run. (-f a)} is clicked.
+\item Increase the \# of bootstrap iterations to 1000
+\item Click \textit{Save Parameters} then \textit{Save and Run Task}
+\end{enumerate}
+
+You will be sent an e-mail when your task is finished (very quickly for this example).  Go back to CIPRES, select \textit{view output}.  
+Download the \texttt{stdout.txt} file and examine this file to make sure your parameters were set correctly.  
+You can check the likelihood value as well.  
+Also download \texttt{RAxML\_bipartitions.result}.  
+This is your best ML tree with bootstrap values.
+
+\begin{framed}
+\noindent
+\textbf{Question 5:} \\
+What was the likelihood value?  How does this compare with your previous analyses from today?  Load your tree into FigTree and make sure the bootstrap values are visible, take a screen shot, and send it to me. 
+\end{framed}
+
+\begin{framed}
+\noindent
+\textbf{Please email me the following:}
+\begin{enumerate}
+  \item The answers to questions 1-5.
+  \item Screengrabs of your two PAUP* trees and your RAxML tree.
+\end{enumerate}
+\end{framed}
+
+\bibliographystyle{plainnat}
+\bibliography{\jobname} 
+
+\end{document}
+
