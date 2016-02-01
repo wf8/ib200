@@ -131,7 +131,8 @@ IB200, Spring 2016
 
 \begin{center}
 \Large \textbf{Lab 05:} \\
-Maximum likelihood inference using PAUP* and jModelTest; \\ 
+Maximum likelihood inference; \\ 
+models of DNA sequence evolution; jModelTest and PAUP*; \\ 
 RAxML and CIPRES supercomputer web interface \\
 \normalsize
 \textit{Updated by Will Freyman}
@@ -144,12 +145,12 @@ RAxML and CIPRES supercomputer web interface \\
 Please download:
 
 \begin{enumerate}
+  \item jModelTest2: \\ 
+        \url{https://drive.google.com/folderview?id=0ByrkKOPtF_n_OUs3d0dNcnJPYXM#list}
   \item PAUP*: download the \textbf{command-line binary} (not the GUI version) at: \\ 
         \url{http://people.sc.fsu.edu/~dswofford/paup_test/}
   \item Primate mitochondrial DNA: \\
         \url{http://ib.berkeley.edu/courses/ib200/labs/04/primate-mtDNA.nex}
-  \item jModelTest2: \\ 
-        \url{https://drive.google.com/folderview?id=0ByrkKOPtF_n_OUs3d0dNcnJPYXM#list}
 \end{enumerate}
 
 %\begin{verbatim}
@@ -162,11 +163,14 @@ Please download:
 
 
 Maximum likelihood (ML) is a statistical method for reconstructing trees.  
-ML operates by trying to find the highest
-likelihood value of a data set given a phylogeny and a model of DNA sequence evolution.
-The tree with the highest likelihood value is considered the best tree.  
+The likelihood is the probability of the data given a hypothesis $P(D|H)$.
+In phylogenetics the data is typically a sequence alignment, and the hypothesis includes
+both the tree topology and the model of character evolution.
+ML operates by trying to maximize the
+likelihood value;
+the tree with the highest likelihood value is considered the best tree.  
 When using ML to build trees, 
-we have to first select a model of DNA sequence evolution. 
+we have to select a model of DNA sequence evolution. 
 Let's do this first and then learn a bit more about ML and model selection while we wait for it to run.
 
 \section{ML model selection using jModelTest}
@@ -205,16 +209,27 @@ so we won't cover it here. Read \citet{huelsenbeck2004bayesian} if you are inter
 \end{enumerate}
 
 
-\section{Models of Nucleotide Change}
+\section{Models of Nucleotide Evolution}
 
-\subsection{The Transition Matrix}
+Most nucleotide and amino acid substitution models are in a class of mathematical models called continuous-time Markov chain (CTMC) models.
+A CTMC consists of a transition rate matrix $Q$ that represents the instantaneous stochastic rates of change between any two states of the model.
+In phylogenetics the model states are nucleotide or amino acid states.
+The probability of transitioning between one states can be found through 
+a matrix exponential:
 
-The transition matrix (as in transition from one character state to another, not as in transition/transversion) 
-is a matrix showing the instantaneous stochastic rate of change between any two nucleotide states. 
-The initial state of the nucleotide is the first column, and the final state is the top row 
-(these are not usually shown in the matrix).
-The matrix can be used to calculate the probability of one nucleotide changing into another on a branch with a given length.  
-The most unrestrained 12 parameter matrix would look like this:
+\begin{equation*}
+P(t) = e^{Qt}
+\end{equation*}
+where $t$ is the length (or time) of a branch in a phylogeny. The overall likelihood of the
+phylogeny can be calculated by plugging these probabilities into Felsenstein's pruning algorithm \citep{felsenstein1981evolutionary}.
+
+\subsection{The Transition Rate Matrix}
+
+Different models of nucleotide evolution are defined by different transition rate matrices. 
+Here we mean \textit{transition} as in transition from one character state to another, not as in transition/transversion mutations.  
+Below, the initial state of the nucleotide is the first column, and the final state is the top row, however these are not usually shown in the matrix.
+Using the matrix exponential shown above, one can calculate the probability of one nucleotide changing into another on a branch with a given length.  
+The most unrestrained 12 parameter matrix (which has a different rate for every possible transition) looks like this:
 
 
 \[ Q = \left( \begin{array}{ccccc}
@@ -229,7 +244,7 @@ T &  \kappa  &  \lambda  &  \mu  &  - \kappa - \lambda - \mu
 As you can see, the diagonals are all negative as each nucleotide will be changing away from itself at any instant, so that each row adds up to 0.  
 Furthermore, if the average rate of change of all the off diagonals was normalized to 1, you could eliminate a parameter for a total of 11 parameters.
 
-On the other hand, this is the transition matrix for the Kimura two parameter model:
+This is the transition matrix for the Kimura two parameter model \citep{kimura1980simple}:
 
 \[ Q = \left( \begin{array}{cccc}
 - \alpha - 2 \beta  &  \beta  &  \alpha  &  \beta  \\ 
@@ -239,7 +254,7 @@ On the other hand, this is the transition matrix for the Kimura two parameter mo
 \end{array} \right)\]
 
 
-Here there are two parameters, transition and transversion rates, which can be reduced to just one by normalizing the matrix.
+Here there are two parameters $\alpha$ and $\beta$, transition and transversion mutation rates, which can be reduced to just one by normalizing the matrix.
 
 Many programs (PAUP* included) can only calculate matrices with reversible models.  This means that change has an equal probability of happening in either direction on a branch.  Thus trees can be evaluated as unrooted networks, making the computationally-intensive likelihood calculations much easier.  For a model to be reversible it must be true that:
 
@@ -322,7 +337,6 @@ This is necessary to avoid overfitting statistical models.
 The Akaike Information Criterion (AIC) can be thought of as the amount of information that is lost when we use 
 a specific model to approximate the real process of molecular evolution.  
 Basically AIC compares several candidate models simultaneously and is used to compare both nested and non-nested models.  
-It penalizes models 
 AICc is used to correct for small sample size.  AICc will approach AIC with larger sample sizes.
 
 The Bayesian Information Criterion (BIC) can be alternately used.  
