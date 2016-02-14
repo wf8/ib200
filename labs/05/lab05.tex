@@ -131,9 +131,8 @@ IB200, Spring 2016
 
 \begin{center}
 \Large \textbf{Lab 05:} \\
-Maximum likelihood inference; \\ 
-models of DNA sequence evolution; jModelTest and PAUP*; \\ 
-RAxML and CIPRES supercomputer web interface \\
+Maximum Likelihood Inference \\ and  
+Models of DNA Sequence Evolution \\
 \normalsize
 \textit{Updated by Will Freyman}
 \end{center}
@@ -147,7 +146,7 @@ Please download:
 \begin{enumerate}
   \item jModelTest2: \\ 
         \url{https://drive.google.com/folderview?id=0ByrkKOPtF_n_OUs3d0dNcnJPYXM#list}
-  \item PAUP*: download the \textbf{command-line binary} (not the GUI version) at: \\ 
+  \item PAUP*: \\ 
         \url{http://people.sc.fsu.edu/~dswofford/paup_test/}
   \item Primate mitochondrial DNA: \\
         \url{http://ib.berkeley.edu/courses/ib200/labs/04/primate-mtDNA.nex}
@@ -181,9 +180,17 @@ to rapidly compute ML trees under a variety of different substitution models,
 and then provides different model selection strategies (such as AIC, BIC, likelihood-ratio tests)
 to pick the best fitting model.
 The ``best'' model and its parameter values can then be used in 
-in programs such as PAUP* or MrBayes to carry out more thorough tree searches.
+programs such as PAUP* or MrBayes to carry out more thorough tree searches.
 
 \subsection{Alternative approaches to jModelTest}
+
+Another aspect of finding the best fitting model is
+determining the actual partitioning scheme to use on molecular data,
+where each partition is assigned a different model of molecular evolution.
+The program PartitionFinder \url{http://www.robertlanfear.com/partitionfinder/} 
+is a popular program for selecting both 
+the best-fitting partitioning
+scheme and best-fitting model of molecular evolution for each partition.
 
 Even if we have picked the ``best'' model for our data, this model may still not be a very good
 fit for the data, or there may be a number of models that fit equally as well.
@@ -214,8 +221,8 @@ so we won't cover it here. Read \citet{huelsenbeck2004bayesian} if you are inter
 Most nucleotide and amino acid substitution models are in a class of mathematical models called continuous-time Markov chain (CTMC) models.
 A CTMC consists of a transition rate matrix $Q$ that represents the instantaneous stochastic rates of change between any two states of the model.
 In phylogenetics the model states are nucleotide or amino acid states.
-The probability of transitioning between one states can be found through 
-a matrix exponential:
+The probability of transitioning between states can be found through 
+the matrix exponential
 
 \begin{equation*}
 P(t) = e^{Qt}
@@ -229,7 +236,7 @@ Different models of nucleotide evolution are defined by different transition rat
 Here we mean \textit{transition} as in transition from one character state to another, not as in transition/transversion mutations.  
 Below, the initial state of the nucleotide is the first column, and the final state is the top row, however these are not usually shown in the matrix.
 Using the matrix exponential shown above, one can calculate the probability of one nucleotide changing into another on a branch with a given length.  
-The most unrestrained 12 parameter matrix (which has a different rate for every possible transition) looks like this:
+The most unrestrained 12 parameter matrix (which has a different rate for every possible transition) looks like this
 
 
 \[ Q = \left( \begin{array}{ccccc}
@@ -240,7 +247,7 @@ G &  \eta  &  \theta  &  - \eta - \theta - \iota  &  \iota  \\
 T &  \kappa  &  \lambda  &  \mu  &  - \kappa - \lambda - \mu  
 \end{array} \right)\]
 
-
+\noindent
 As you can see, the diagonals are all negative as each nucleotide will be changing away from itself at any instant, so that each row adds up to 0.  
 Furthermore, if the average rate of change of all the off diagonals was normalized to 1, you could eliminate a parameter for a total of 11 parameters.
 
@@ -253,19 +260,19 @@ This is the transition matrix for the Kimura two parameter model \citep{kimura19
 \beta  &  \alpha  &  \beta  &  - \alpha - 2 \beta   
 \end{array} \right)\]
 
-
+\noindent
 Here there are two parameters $\alpha$ and $\beta$, transition and transversion mutation rates, which can be reduced to just one by normalizing the matrix.
 
-Many programs (PAUP* included) can only calculate matrices with reversible models.  This means that change has an equal probability of happening in either direction on a branch.  Thus trees can be evaluated as unrooted networks, making the computationally-intensive likelihood calculations much easier.  For a model to be reversible it must be true that:
+Many programs (PAUP* included) can only calculate matrices with reversible models.  This means that change has an equal probability of happening in either direction on a branch.  Thus trees can be evaluated as unrooted networks, making the computationally-intensive likelihood calculations much easier.  For a model to be reversible it must be true that
 
 \begin{equation*}
 \pi_i Q_{ij} = \pi_j Q_{ji}
 \end{equation*}
-
+\noindent
 where $Q_{ij}$ is the instantaneous rate of change from nucleotide $i$ to nucleotide $j$
 and $\pi_i$ is the equilibrium frequency of nucleotide $i$.
 The equilibrium frequency is the frequency of that nucleotide if the substitution process is allowed to run forever, and can be considered another parameter.
-So the General Time Reversible (GTR) matrix looks like:
+So the General Time Reversible (GTR) matrix looks like
 
 \[ Q = \left( \begin{array}{cccc}
 -  &  \pi_c r_{ac}  &  \pi_g r_{ag}  &  \pi_t r_{at}  \\ 
@@ -273,7 +280,7 @@ So the General Time Reversible (GTR) matrix looks like:
 \pi_a r_{ag}  &  \pi_c r_{cg}  &  -  &  \pi_t r_{gt}  \\ 
 \pi_a r_{at}  &  \pi_c r_{ct}  &  \pi_g r_{gt}  &  -  \\ 
 \end{array} \right)\]
-
+\noindent
 with the diagonal filled in appropriately, and where the terms $r_{ij}$ are called the \textit{exchangeability rates}.  The sum of the equilibrium frequencies for all four bases must equal one, so that there are three equilibrium frequency parameters.  Furthermore, one of the rate parameters can be eliminated by normalizing the matrix, leaving eight parameters total.  General Time Reversible (GTR) represents a family of nested models that encompass 64 models with different combinations of parameters.  Nested models are special cases of more general models.  
 Some of these nested models are named:
 
@@ -293,7 +300,9 @@ Some of these nested models are named:
 \begin{framed}
 \noindent
 \textbf{Question 1:} \\
-Which of these models is the least complex?  Which of these models is the most parameter rich?
+Phylogenetic CTMCs are used to model all types of discrete character evolution.
+What would it mean to use the GTR model for a morphological character with 3 character states?
+What would the parameters be, and how many would there be?
 \end{framed}
 
 \subsection{Commonly used model extensions}
@@ -333,17 +342,15 @@ Once the program is finished computing the likelihood scores, we need a way to e
 
 AIC and BIC are both methods that assess model fit by penalizing complex models (models with more parameters).
 This is necessary to avoid overfitting statistical models.
-
-The Akaike Information Criterion (AIC) can be thought of as the amount of information that is lost when we use 
+The \textit{Akaike Information Criterion} (AIC) can be thought of as the amount of information that is lost when we use 
 a specific model to approximate the real process of molecular evolution.  
 Basically AIC compares several candidate models simultaneously and is used to compare both nested and non-nested models.  
 AICc is used to correct for small sample size.  AICc will approach AIC with larger sample sizes.
-
-The Bayesian Information Criterion (BIC) can be alternately used.  
-This criterion gives equal priors for all competing models and choosing the model with the smallest 
-BIC is equivalent to selecting the model with the maximum posterior probability. 
-(If you have never been introduced to Bayesian statistics, what I just said probably doesn’t make any sense to you.  
-Don’t worry, this will become clearer after we introduce Bayesian Inference next week.)
+The \textit{Bayesian Information Criterion} (BIC) can be alternately used.  
+It is rather unfortunately named -- it is not really a Bayesian method
+as it is independent of the prior and actually only uses the likelihood value (like AIC).
+It is calculated almost exactly the same as AIC, except it penalizes
+extra parameters slightly more strongly.
 
 \begin{enumerate}
 
@@ -360,7 +367,15 @@ The chosen model has the lowest AICc score and will be highlighted.
 \begin{framed}
 \noindent
 \textbf{Question 2:} \\
-Which model was selected using AICc?  What is the likelihood value for this?  Use the BIC calculation (remember to select Write PAUP* block).  Was the same model selected as with AICc?  What is the likelihood value for this? What if these two criteria differ in their model selection?  
+Which model was selected using AICc?  
+jModelTest, like most other phylogenetic software uses log-likelihood (lnL) values.
+What is the log-likelihood value for the selected model? \\
+\\
+Perform the BIC calculation (remember to select Write PAUP* block).  
+Was the same model selected as with AICc?  
+What is the log-likelihood value for this model? \\
+\\
+What if these two criteria differ in their model selection?  
 \end{framed}
 
 \section{Maximum Likelihood (ML) in PAUP*}
@@ -375,7 +390,7 @@ BEGIN PAUP;
 Lset base=(0.3585 0.3207 0.0844 ) nst=6  rmat=(2.0810 ... etc
 END;
 \end{verbatim}
-
+\noindent
 This block changes the Likelihood Settings \texttt{Lset}, 
 by setting the base frequencies at equilibrium \texttt{Base}, 
 the number of substitution types \texttt{Nst}, 
@@ -385,12 +400,10 @@ the shape of the gamma distribution \texttt{Shape},
 and the proportion of invariant sites \texttt{Pinvar}.
 
 
-Copy the PAUP block from the text file.  I also include the line above this \texttt{[! Likelihood settings ...etc]}. 
+Copy the PAUP block from the text file.  
 Edit your Nexus file and paste the PAUP block from jModeltest directly into it. 
 It can go after any \texttt{END;} statement.  
-
-Execute the newly-edited sequence file in PAUP* again.  Change your working directory to a folder for the day if you'd like.
-
+Execute the newly-edited sequence file in PAUP* again.  
 Set the optimality criteria to likelihood, run a heuristic search, and then write your tree to a file with branch lengths.
 
 \begin{verbatim}
@@ -408,10 +421,8 @@ Make another tree using the BIC PAUP block. Open the two trees in FigTree and se
 
 \section{CIPRES and RAxML}
 
-The CIPRES Science Gateway is a computational server that hosts popular phylogenetic research tools.  There are four necessary steps to use these tools:  Create an account, upload your data, submit your tasks, and analyze your output. 
-
-Go to the CIPRES Gateway website: \url{http://www.phylo.org/}
-
+The CIPRES Science Gateway is a web server that hosts popular phylogenetic research tools.Analyses performed through CIPRES run on the NSF's XSEDE supercomputing infrastructure.  
+Go to the CIPRES at \url{http://www.phylo.org/}
 If you have never used CIPRES, you'll need to register.
 Once you login, click on \textit{Toolkit} to see all the programs available.
 This will be very useful for your projects!
@@ -424,7 +435,6 @@ RAxML also uses a model called GTRCAT that approximates the full GTR+$\Gamma$ mo
 Keep in mind that RAxML gets your likelihood tree quickly, 
 but does not search through tree space as rigorously -- there is always a trade-off.
 But RAxML is great for large datasets.
-
 RAxML requires a \textit{phylip} formatted file. Open your nexus file
 in AliView and select \textit{Save as Phylip (full names \& padded)}.
 
