@@ -1,0 +1,319 @@
+\documentclass[11pt]{article}
+
+\usepackage{filecontents}
+\begin{filecontents}{\jobname.bib}
+@article{heath2014fossilized,
+  title={The fossilized birth--death process for coherent calibration of divergence-time estimates},
+  author={Heath, Tracy A and Huelsenbeck, John P and Stadler, Tanja},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={111},
+  number={29},
+  pages={E2957--E2966},
+  year={2014},
+  publisher={National Acad Sciences}
+}
+\end{filecontents}
+
+\usepackage{natbib}
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage[font=footnotesize]{caption}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+  \geometry{margin=1in}
+\usepackage{framed}
+\usepackage[breaklinks]{hyperref}
+\usepackage{minibox}
+\usepackage[compact]{titlesec}
+
+\graphicspath{ {./figures/} }
+
+
+
+
+\begin{document}
+
+
+\noindent
+\large
+\begin{minipage}{0.5\textwidth}
+\begin{flushleft} 
+IB200, Spring 2016
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{flushright} 
+\textit{University of California, Berkeley}
+\end{flushright}
+\end{minipage}
+
+\vspace{0.5cm}
+
+
+\begin{center}
+\Large \textbf{Lab 09:} \\
+Phylogenetic, Specimen, and Taxonomic \\
+Databases and R Packages \\
+\normalsize
+\textit{By Will Freyman}
+\end{center}
+
+\vspace{0.5cm}
+
+
+\section{Introduction}
+
+This week we'll briefly check out several different online databases
+that contain phylogenetic, specimen, and taxonomic information.
+We'll also look at a few R packages that you can use to automate
+querying these resources.
+
+\section{Phylogenetic Online Databases and Tools}
+
+\subsection{TreeBASE}
+
+TreeBASE \url{https://treebase.org} is a repository of phylogenetic information, 
+specifically user-submitted phylogenetic trees and the data used to generate them.
+Many studies upload their phylogenies and sequence matrices here,
+so they can be used or reanalyzed in future studies.
+Many journals require trees to be deposited in TreeBASE before publication.
+
+Try searching TreeBASE for a phylogeny of a taxon that interests you.
+
+%\subsubsection{\texttt{treebase} R Package}
+%
+%There was a nice R package that allowed you to programmatically 
+%query and access data from TreeBASE, but it seems to no longer work.
+%If you want to try yourself (maybe you can help fix it!)
+%check this out: \url{https://ropensci.org/tutorials/treebase_tutorial.html}
+
+
+\subsection{Open Tree of Life}
+
+The Open Tree of Life (OTOL) \url{http://opentreeoflife.org/}
+is a newer system that stores published phylogenies (like TreeBASE)
+but also to synthesizes a constantly updated version of the entire tree of life.
+
+Try searching OTOL for a phylogeny of the same taxon you searched TreeBASE for.
+Unlike TreeBASE, OTOL will deliver a taxonomic tree if a molecular phylogeny 
+has not been uploaded for your group of interest.
+
+I don't know of any journals that require submitting trees to OTOL
+prior to publication, but I hope journals will move towards OTOL instead
+of TreeBASE because it is much easier to submit data to OTOL.
+
+\subsubsection{\texttt{rotl} R Package}
+
+To programmatically query and access OTOL data install this R package:
+
+\begin{verbatim}
+install.packages("rotl")
+library(rotl)
+library(ape)
+\end{verbatim}
+
+Now we can query a small part of the current tree of life.
+To extract a portion of the tree, we first need to
+get the \texttt{ott\_ids} (Open Tree Taxonomy Identifiers)
+of the taxa we're interested in:
+
+\begin{verbatim}
+apes = c("Pan", "Pongo", "Pan", "Gorilla", "Hylobates", "Hoolock", "Homo")
+apes_resolved = tnrs_match_names(apes)
+\end{verbatim}
+
+Now we can get the tree with those tips:
+
+\begin{verbatim}
+tree = tol_induced_subtree(ott_ids=apes_resolved$ott_id)
+plot(tree)
+\end{verbatim}
+
+Let's download a published tree by a member of this class!
+Andrew Thornhill published a Myrtaceae tree that has been uploaded to the OTOL.
+First, get the \texttt{ott\_id} of Myrtaceae:
+
+\begin{verbatim}
+myrtaceae_resolved = tnrs_match_names("Myrtaceae")
+\end{verbatim}
+
+Now get the subtree under the Myrtaceae node.
+It's a big tree, so we'll plot it without tip labels:
+
+\begin{verbatim}
+tree = tol_subtree(ott_id=myrtaceae_resolved$ott_id)
+plot(ladderize(tree), show.tip.label=FALSE)
+\end{verbatim}
+
+The more authors deposit their published phylogenies in the OTOL,
+the easier it will get for other researchers to access up-to-date
+phylogenies!
+
+\section{Specimen Online Databases and Tools}
+
+
+\subsection{Berkeley Natural History Museums (BNHM)}
+
+The BNHM is a consortium of six natural history museums located here at UC Berkeley
+that house over 12 million specimens. If you are studying anything in California
+you will likely want to use BNHM resources.
+These are awesome resources, so please visit each website and learn what is available!
+
+\begin{enumerate}
+
+\item University and Jepson Herbaria: Consortium of California Herbaria \\
+        \url{http://ucjeps.berkeley.edu/consortium/}
+
+\item Museum of Vertebrate Zoology: VertNet \\
+            \url{http://www.vertnet.org/}
+
+\item Essig Museum of Entomology Collections \\ 
+        \url{https://essigdb.berkeley.edu/}
+
+\item University of California Museum of Paleontology Database \\
+        \url{http://ucmpdb.berkeley.edu/}
+
+\end{enumerate}
+
+\subsection{Global Biodiverity Information Facilty (GBIF)}
+
+GBIF is an incredibly important resource that aggregates
+biodiversity data from institutions around the world
+and makes it all available through the internet.
+GBIF is useful for georeferenced distribution data,
+and contains both specimen and observation based data.
+Many of the BNHM resources listed above share their data
+in GBIF.
+
+If you use GBIF data you should try to double check the quality of your data,
+as BGIF aggregates data from multiple sources, some of which have lower quality data
+than others.
+
+\subsubsection{GBIF Web Portal}
+
+Go to \url{http://www.gbif.org/}, and click on the 
+\texttt{Data} pull down menu. Click on \texttt{Explore species}.
+Search for your taxon of interest.
+You should be able to view a map of all the georeferenced data
+for your taxon.
+How many georeferenced records are available?
+You can download all the records as a CSV or Darwin Core file.
+
+\subsubsection{\texttt{rgbif} R Package}
+
+Here's a handy R package to programmatically access GBIF data:
+
+\begin{verbatim}
+install.packages("rgbif")
+library(rgbif)
+\end{verbatim}
+
+Now let's download occurence data for a taxon.
+This will take a minute or so:
+
+\begin{verbatim}
+occ = occ_search(scientificName="Chamerion latifolium", limit=500)
+\end{verbatim}
+
+We only downloaded the first 500 records, but how many total were found?
+
+\begin{verbatim}
+occ
+\end{verbatim}
+
+Take a look at the first occurence:
+
+\begin{verbatim}
+occ$data[1,]
+\end{verbatim}
+
+We can get the latitude and longitude of the first record:
+
+\begin{verbatim}
+occ$data[1,3]
+occ$data[1,4]
+\end{verbatim}
+
+Let's map the data using the R package ggplot2:
+
+\begin{verbatim}
+install.packages("ggplot2")
+library(ggplot2)
+gbifmap(occ$data)
+\end{verbatim}
+
+\section{Taxonomic Databases and Tools}
+
+Taxonomy is crucial when studying biodiversity,
+all biological data is linked through the names we use to describe taxa.
+However taxon names and concepts change, and systems to resolve synonyms
+are necessary.
+
+\subsection{Integrated Taxonomic Information System (ITIS)}
+
+ITIS is a partnership of US, Mexican, and Canadian government agencies
+that provides a database that standardizes taxonomic names.
+For each scientific name, ITIS includes the authority (author and date), taxonomic rank, associated synonyms and vernacular names where available, a unique taxonomic serial number, data source information (publications, experts, etc.) and data quality indicators.
+ITIS is often used as the absolute source of taxonomic data for large-scale biodiversity projects.
+Browse some of the data here: \url{http://www.itis.gov/}
+
+\subsection{Global Names Resolver (GNR)}
+
+Often researchers have a list of taxon names, and they
+simply want to check the spelling and get the most up-to-date synonyms 
+of each name. Services like the GNR can help: \url{http://resolver.globalnames.org/}
+
+\subsection{\texttt{taxize} R Package}
+
+The GNR is an immensely helpful tool, but often we would like to use 
+a script to check taxon names instead of copying and pasting names into the website.
+The R package \texttt{taxize} uses the GNR (and many other taxonomic databases)
+to do this:
+
+\begin{verbatim}
+install.packages("taxize")
+library(taxize)
+\end{verbatim}
+
+Let's check for a taxon name:
+
+\begin{verbatim}
+mynames = gnr_resolve(names="Helianthos annus")
+head(mynames)
+\end{verbatim}
+
+Here we see that the name was misspelled, and the GNR recommended \textit{Helianthus annus} instead.
+We can also get an accepted name from a synonym.
+First, get the taxonomic serial numbers (TSN) of the taxa from ITIS:
+
+\begin{verbatim}
+mynames = c("Helianthus annuus ssp. jaegeri", 
+            "Helianthus annuus ssp. lenticularis", 
+            "Helianthus annuus ssp. texanus")
+tsn = get_tsn(mynames, accepted = FALSE)
+\end{verbatim}
+
+Now get the accepted names for each TSN:
+
+\begin{verbatim}
+lapply(tsn, itis_acceptname)
+\end{verbatim}
+
+\texttt{taxize} will do a lot of other handy taxonomic data wrangling,
+check out \url{https://github.com/ropensci/taxize} for more.
+
+
+\begin{framed}
+\noindent
+\textbf{Please email me the following:} \\
+\\
+Send me a map of your favorite taxon's distribution. 
+Use GBIF data.
+Good luck on the quiz and enjoy spring break!
+\end{framed}
+
+%\bibliographystyle{plainnat}
+%\bibliography{\jobname} 
+
+\end{document}
+
