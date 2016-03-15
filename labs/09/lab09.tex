@@ -92,13 +92,13 @@ Try searching TreeBASE for a phylogeny of a taxon that interests you.
 
 The Open Tree of Life (OTOL) \url{http://opentreeoflife.org/}
 is a newer system that stores published phylogenies (like TreeBASE)
-but also to synthesizes a constantly updated version of the entire tree of life.
+but also synthesizes a constantly updated version of the entire tree of life.
 
 Try searching OTOL for a phylogeny of the same taxon you searched TreeBASE for.
 Unlike TreeBASE, OTOL will deliver a taxonomic tree if a molecular phylogeny 
 has not been uploaded for your group of interest.
 
-I don't know of any journals that require submitting trees to OTOL
+I don't know of any journal that requires submitting trees to OTOL
 prior to publication, but I hope journals will move towards OTOL instead
 of TreeBASE because it is much easier to submit data to OTOL.
 
@@ -112,7 +112,7 @@ library(rotl)
 library(ape)
 \end{verbatim}
 
-Now we can query a small part of the current tree of life.
+Now we can query a small part of the tree of life as it is currently known.
 To extract a portion of the tree, we first need to
 get the \texttt{ott\_ids} (Open Tree Taxonomy Identifiers)
 of the taxa we're interested in:
@@ -186,7 +186,7 @@ Many of the BNHM resources listed above share their data
 in GBIF.
 
 If you use GBIF data you should try to double check the quality of your data,
-as BGIF aggregates data from multiple sources, some of which have lower quality data
+as GBIF aggregates data from multiple sources, some of which have lower quality data
 than others.
 
 \subsubsection{GBIF Web Portal}
@@ -201,7 +201,8 @@ You can download all the records as a CSV or Darwin Core file.
 
 \subsubsection{\texttt{rgbif} R Package}
 
-Here's a handy R package to programmatically access GBIF data:
+What if we want to automate downloading GBIF data?
+Here's a handy R package to programmatically access GBIF:
 
 \begin{verbatim}
 install.packages("rgbif")
@@ -244,8 +245,8 @@ gbifmap(occ$data)
 
 \section{Taxonomic Databases and Tools}
 
-Taxonomy is crucial when studying biodiversity,
-all biological data is linked through the names we use to describe taxa.
+Taxonomy is crucial when studying biodiversity because
+all biological data is linked through the names we use.
 However taxon names and concepts change, and systems to resolve synonyms
 are necessary.
 
@@ -265,7 +266,7 @@ of each name. Services like the GNR can help: \url{http://resolver.globalnames.o
 
 \subsection{\texttt{taxize} R Package}
 
-The GNR is an immensely helpful tool, but often we would like to use 
+The websites above are immensely helpful tools, but often we would like to use 
 a script to check taxon names instead of copying and pasting names into the website.
 The R package \texttt{taxize} uses the GNR (and many other taxonomic databases)
 to do this:
@@ -299,7 +300,7 @@ Now get the accepted names for each TSN:
 lapply(tsn, itis_acceptname)
 \end{verbatim}
 
-\texttt{taxize} will do a lot of other handy taxonomic data wrangling,
+The \texttt{taxize} package will do a lot of other handy taxonomic data wrangling,
 check out \url{https://github.com/ropensci/taxize} for more.
 
 
@@ -307,8 +308,8 @@ check out \url{https://github.com/ropensci/taxize} for more.
 \noindent
 \textbf{Please email me the following:} \\
 \\
-Send me a map of your favorite taxon's distribution. 
-Use GBIF data.
+Use R to access GBIF data 
+and send me a map of your favorite taxon's distribution.
 Good luck on the quiz and enjoy spring break!
 \end{framed}
 
