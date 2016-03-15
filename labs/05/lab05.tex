@@ -197,7 +197,7 @@ fit for the data, or there may be a number of models that fit equally as well.
 We can deal with uncertainty in model selection by averaging over all possible
 models during inference instead of conditioning over the single ``best'' model.
 This \textit{model averaging} approach is usually carried out in a Bayesian framework,
-so we won't cover it here. Read \citet{huelsenbeck2004bayesian} if you are interested.
+read \citet{huelsenbeck2004bayesian} if you are interested.
 
 \subsection{jModelTest instructions}
 
@@ -236,7 +236,7 @@ Different models of nucleotide evolution are defined by different transition rat
 Here we mean \textit{transition} as in transition from one character state to another, not as in transition/transversion mutations.  
 Below, the initial state of the nucleotide is the first column, and the final state is the top row, however these are not usually shown in the matrix.
 Using the matrix exponential shown above, one can calculate the probability of one nucleotide changing into another on a branch with a given length.  
-The most unrestrained 12 parameter matrix (which has a different rate for every possible transition) looks like this
+The most unconstrained 12 parameter matrix (which has a different rate for every possible transition) looks like this
 
 
 \[ Q = \left( \begin{array}{ccccc}
@@ -300,8 +300,9 @@ Some of these nested models are named:
 \begin{framed}
 \noindent
 \textbf{Question 1:} \\
-Phylogenetic CTMCs are used to model all types of discrete character evolution.
+DNA and amino acids are discrete characters. Phylogenetic CTMCs can be used to model all types of discrete character evolution.
 What would it mean to use the GTR model for a morphological character with 3 character states?
+Is this an ordered or unordered character state evolution model?
 What would the parameters be, and how many would there be?
 \end{framed}
 
