@@ -1,0 +1,144 @@
+\documentclass[11pt]{article}
+
+\usepackage{filecontents}
+\begin{filecontents}{\jobname.bib}
+@article{heath2014fossilized,
+  title={The fossilized birth--death process for coherent calibration of divergence-time estimates},
+  author={Heath, Tracy A and Huelsenbeck, John P and Stadler, Tanja},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={111},
+  number={29},
+  pages={E2957--E2966},
+  year={2014},
+  publisher={National Acad Sciences}
+}
+\end{filecontents}
+
+\usepackage{natbib}
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage[font=footnotesize]{caption}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+  \geometry{margin=1in}
+\usepackage{framed}
+\usepackage[breaklinks]{hyperref}
+\usepackage{minibox}
+\usepackage[compact]{titlesec}
+
+\graphicspath{ {./figures/} }
+
+
+
+
+\begin{document}
+
+
+\noindent
+\large
+\begin{minipage}{0.5\textwidth}
+\begin{flushleft} 
+IB200, Spring 2016
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{flushright} 
+\textit{University of California, Berkeley}
+\end{flushright}
+\end{minipage}
+
+\vspace{0.5cm}
+
+
+\begin{center}
+\Large \textbf{Lab 10:} \\
+Introduction to RevBayes: \\
+Phylogenetic Analysis Using Graphical Models \\
+and Markov chain Monte Carlo \\
+\normalsize
+\textit{By Will Freyman}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Before you begin}
+
+In a few of the upcoming labs we'll use a Linux virtual machine that has
+RevBayes and other software pre-installed.
+The virtual machine will work on Mac OSX, Linux, and Windows computers.
+I'm providing this virtual machine because compiling RevBayes from source
+can be tricky (it's still experimental software), but I encourage you
+to try installing on your own machine if you are interested.
+Learning to compile and install scientific software is an
+important bioinformatics skill.
+
+
+Please do these steps before coming to lab.
+The download is too large to do during lab.
+
+
+\begin{enumerate}
+  \item Download and install VirtualBox: \\
+        \url{https://www.virtualbox.org/} \\
+        This is the ``virtual box'' within which we'll install our Linux environment. 
+        Be sure to download and install both the \textbf{VirtualBox} application 
+        as well as the \textbf{VirtualBox Extension Pack}.
+  \item Download the Ubuntu virtual machine: \\ 
+        \url{http://ib.berkeley.edu/courses/ib200/} \\
+        This is a .ova file which is basically a disk image of the Linux distribution Ubuntu
+        with RevBayes and other phylogenetic software pre-installed.
+  \item Start the virtual machine: \\ 
+        Start up \textbf{VirtualBox}, and then double click on the downloaded .ova file.
+        This will load the virtual machine. Accept all the default settings.
+        Now within the \textbf{VirtualBox Manager} window, double click on the Ubuntu
+        machine to boot it up. You'll be asked for a password, which is \textbf{ib200}.
+  \item Navigating the virtual machine: \\
+        Most of our work will be done in a terminal window which will
+        appear once you login. You can also access the web through the Firefox
+        web browser by clicking on the icon on the left of the screen.
+        If you have not used Linux before, please take time to explore the operating system.
+\end{enumerate}
+
+\section{Introduction to Graphical Models}
+
+A graphical model is a probabilistic model represented by a graph
+where each node in the graph is a variable, and the edges of the graph represent
+the dependency structure between variables.
+Graphical models are commonly used in machine learning and statistics,
+and nearly all probabilistic models can be considered special cases of graphical models.
+The graphical model framework provides a precise representation
+of complex, parameter rich models that allows them
+to be constructed and utilized effectively.
+
+There are a number of programming languages that specialize in
+describing graphical models such as Stan, JAGS, and BUGS.
+However, in phylogenetics
+
+\begin{verbatim}
+execute primates.nex
+\end{verbatim}
+
+
+\begin{framed}
+\noindent
+\textbf{Question 4:} \\
+Open the summary tree in FigTree. Figure out how to add the 
+95\% HPD node age ranges as node bars to the tree. 
+Also add the posterior probabilities on the nodes of the tree.
+Send me a screen shot.
+\end{framed}
+
+\begin{framed}
+\noindent
+\textbf{Please email me the following:}
+\begin{enumerate}
+  \item The answers to questions 1-4.
+  \item Screenshots for questions 2 and 4.
+\end{enumerate}
+\end{framed}
+
+\bibliographystyle{plainnat}
+\bibliography{\jobname} 
+
+\end{document}
+
