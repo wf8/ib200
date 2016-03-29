@@ -91,10 +91,13 @@ and Markov chain Monte Carlo \\
 
 \section{Before you begin}
 
-Please download and install \textbf{RevBayes}: \\
-\url{http://revbayes.github.io/code.html} \\
-RevBayes is a command line program that you run from the terminal,
+Please download and install \textbf{RevBayes}.
+RevBayes is a command line program that runs from the terminal,
 please make sure you can get it running before lab.
+Downloads are here: \url{http://revbayes.github.io/code.html}
+
+Since we will be using sequence data that downloaded with RevBayes,
+please run RevBayes in the RevBayes folder you downloaded it in.
 
 %In a few of the upcoming labs we'll use a Linux virtual machine that has
 %RevBayes and other software pre-installed.
@@ -186,9 +189,9 @@ x
 \end{verbatim}
 If you want to load a Rev script from an external file type
 \begin{verbatim}
-source("my_script.rev")
+source("my_script.Rev")
 \end{verbatim}
-You'll get an error message because the file \texttt{my\_script.rev}
+You'll get an error message because the file \texttt{my\_script.Rev}
 doesn't exist.
 To quit RevBayes type \texttt{q()}.
 
@@ -196,10 +199,14 @@ The Rev language is very similar to R, however an important
 difference is the way variables are assigned.
 In R we can use either the \texttt{=} or \texttt{<-} symbols
 interchangeably.
-In Rev we use the assignment variable to describe
-what type of graphical model component the variable is.
-Graphical model variables come in three types:
-constant, stochastic, and deterministic.
+In Rev we use the \texttt{=} operator
+when defining variables that exist in the Rev workspace
+but are not components of the graphical model.
+Since graphical model variables come in three types,
+Rev provides three other assignment operators to specify
+the type of the variable.
+The three types are
+constant, stochastic, and deterministic variables.
 To declare constant variables (parameters
 that are fixed throughout the analysis) use
 \begin{verbatim}
@@ -228,9 +235,8 @@ will automatically be updated:
 length ~ dnNormal(mean=mu, sd=sigma)
 long_length
 \end{verbatim}
-In Rev we use the plain old \texttt{=} sign 
-when defining variables that exist in the Rev workspace
-but are not components of the graphical model.
+We'll see more examples of constant, stochastic, and deterministic variables
+and how they are used in graphical models in the examples that follow.
 
 \section{Simple non-phylogenetic example}
 
@@ -276,9 +282,9 @@ Now we can finalize the model by saving it as a workspace variable:
 \begin{verbatim}
 mymodel = model(heights)
 \end{verbatim}
-If you type \texttt{mymodel} you will see
-output a lot of details about the model you have specified
-and how the nodes are all connected.
+If you type \texttt{mymodel} 
+details about the model you have specified
+and how the nodes are all connected will be output to the screen.
 To view details on a single node type
 \begin{verbatim}
 str(mu)
@@ -302,7 +308,7 @@ Just like in R, you can type \texttt{?} to get info on any command.
 
 
 We will also need to set up some monitors for our MCMC analysis.
-The monitors will basically watch the MCMC and keep samples.
+The monitors will basically watch the MCMC and keep samples from it.
 We'll set up a log file for the entire model, and also a screen monitor
 so we can view progress on our screen:
 \begin{verbatim}
