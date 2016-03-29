@@ -2,15 +2,43 @@
 
 \usepackage{filecontents}
 \begin{filecontents}{\jobname.bib}
-@article{heath2014fossilized,
-  title={The fossilized birth--death process for coherent calibration of divergence-time estimates},
-  author={Heath, Tracy A and Huelsenbeck, John P and Stadler, Tanja},
-  journal={Proceedings of the National Academy of Sciences},
-  volume={111},
-  number={29},
-  pages={E2957--E2966},
+@article{hohna2014probabilistic,
+  title={Probabilistic graphical model representation in phylogenetics},
+  author={H{\"o}hna, Sebastian and Heath, Tracy A and Boussau, Bastien and Landis, Michael J and Ronquist, Fredrik and Huelsenbeck, John P},
+  journal={Systematic biology},
+  volume={63},
+  number={5},
+  pages={753--771},
   year={2014},
-  publisher={National Acad Sciences}
+  publisher={Oxford University Press}
+}
+@article{rannala2012tail,
+  title={Tail paradox, partial identifiability, and influential priors in Bayesian branch length inference},
+  author={Rannala, Bruce and Zhu, Tianqi and Yang, Ziheng},
+  journal={Molecular biology and evolution},
+  volume={29},
+  number={1},
+  pages={325--335},
+  year={2012},
+  publisher={SMBE}
+}
+@article{jordan2004graphical,
+  title={Graphical models},
+  author={Jordan, Michael I},
+  journal={Statistical Science},
+  pages={140--155},
+  year={2004},
+  publisher={JSTOR}
+}
+@article{airoldi2007getting,
+  title={Getting started in probabilistic graphical models},
+  author={Airoldi, Edoardo M},
+  journal={PLoS Comput Biol},
+  volume={3},
+  number={12},
+  pages={e252},
+  year={2007},
+  publisher={Public Library of Science}
 }
 \end{filecontents}
 
@@ -63,77 +91,473 @@ and Markov chain Monte Carlo \\
 
 \section{Before you begin}
 
-In a few of the upcoming labs we'll use a Linux virtual machine that has
-RevBayes and other software pre-installed.
-The virtual machine will work on Mac OSX, Linux, and Windows computers.
-I'm providing this virtual machine because compiling RevBayes from source
-can be tricky (it's still experimental software), but I encourage you
-to try installing on your own machine if you are interested.
-Learning to compile and install scientific software is an
-important bioinformatics skill.
+Please download and install \textbf{RevBayes}: \\
+\url{http://revbayes.github.io/code.html} \\
+RevBayes is a command line program that you run from the terminal,
+please make sure you can get it running before lab.
 
+%In a few of the upcoming labs we'll use a Linux virtual machine that has
+%RevBayes and other software pre-installed.
+%The virtual machine will work on Mac OSX, Linux, and Windows computers.
+%I'm providing this virtual machine because compiling RevBayes from source
+%can be tricky (it's still experimental software), but I encourage you
+%to try installing on your own machine if you are interested.
+%Learning to compile and install scientific software is an
+%important bioinformatics skill.
+%
+%
+%Please do these steps before coming to lab.
+%The download is too large to do during lab.
+%
+%
+%\begin{enumerate}
+%  \item Download and install VirtualBox: \\
+%        \url{https://www.virtualbox.org/} \\
+%        This is the ``virtual box'' within which we'll install our Linux environment. 
+%        Be sure to download and install both the \textbf{VirtualBox} application 
+%        as well as the \textbf{VirtualBox Extension Pack}.
+%  \item Download the Ubuntu virtual machine: \\ 
+%        \url{http://ib.berkeley.edu/courses/ib200/} \\
+%        This is a .ova file which is basically a disk image of the Linux distribution Ubuntu
+%        with RevBayes and other phylogenetic software pre-installed.
+%  \item Start the virtual machine: \\ 
+%        Start up \textbf{VirtualBox}, and then double click on the downloaded .ova file.
+%        This will load the virtual machine. Accept all the default settings.
+%        Now within the \textbf{VirtualBox Manager} window, double click on the Ubuntu
+%        machine to boot it up. You'll be asked for a password, which is \textbf{ib200}.
+%  \item Navigating the virtual machine: \\
+%        Most of our work will be done in a terminal window which will
+%        appear once you login. You can also access the web through the Firefox
+%        web browser by clicking on the icon on the left of the screen.
+%        If you have not used Linux before, please take time to explore the operating system.
+%\end{enumerate}
 
-Please do these steps before coming to lab.
-The download is too large to do during lab.
+\section{Introduction to Graphical Models and RevBayes}
 
-
-\begin{enumerate}
-  \item Download and install VirtualBox: \\
-        \url{https://www.virtualbox.org/} \\
-        This is the ``virtual box'' within which we'll install our Linux environment. 
-        Be sure to download and install both the \textbf{VirtualBox} application 
-        as well as the \textbf{VirtualBox Extension Pack}.
-  \item Download the Ubuntu virtual machine: \\ 
-        \url{http://ib.berkeley.edu/courses/ib200/} \\
-        This is a .ova file which is basically a disk image of the Linux distribution Ubuntu
-        with RevBayes and other phylogenetic software pre-installed.
-  \item Start the virtual machine: \\ 
-        Start up \textbf{VirtualBox}, and then double click on the downloaded .ova file.
-        This will load the virtual machine. Accept all the default settings.
-        Now within the \textbf{VirtualBox Manager} window, double click on the Ubuntu
-        machine to boot it up. You'll be asked for a password, which is \textbf{ib200}.
-  \item Navigating the virtual machine: \\
-        Most of our work will be done in a terminal window which will
-        appear once you login. You can also access the web through the Firefox
-        web browser by clicking on the icon on the left of the screen.
-        If you have not used Linux before, please take time to explore the operating system.
-\end{enumerate}
-
-\section{Introduction to Graphical Models}
-
-A graphical model is a probabilistic model represented by a graph
-where each node in the graph is a variable, and the edges of the graph represent
+Probabilistic graphical models are commonly used in statistics and machine learning,
+and their use is growing in all fields of science in which mathematical models
+are used to make inference, particularly computational biology \citep{jordan2004graphical, airoldi2007getting}.
+The graphical model framework provides a precise formalism
+for complex, parameter rich models that enable them
+to be constructed and utilized effectively. 
+All probabilistic models can be represented as graphs,
+where each node in the graph is a random variable, and the edges of the graph represent
 the dependency structure between variables.
-Graphical models are commonly used in machine learning and statistics,
-and nearly all probabilistic models can be considered special cases of graphical models.
-The graphical model framework provides a precise representation
-of complex, parameter rich models that allows them
-to be constructed and utilized effectively.
+A graphical model is simply a probability distribution represented in a graph form.
 
-There are a number of programming languages that specialize in
+There are a number of scripting languages that specialize in
 describing graphical models such as Stan, JAGS, and BUGS.
-However, in phylogenetics
+However, the field of evolutionary biology requires a number of unique structures
+like phylogenetic trees and molecular data that make using 
+more general model specification languages extremely difficult to use.
+The software \textbf{RevBayes} \citep{hohna2014probabilistic} provides a new scripting language \textbf{Rev}
+in which users explicitly specify complex phylogenetic models.
+In RevBayes there are no default ``black-box'' models like in previous
+phylogenetic software, the user must fully detail the analysis they want to perform.
+The hope is that this will lead to improved understanding of phylogenetic
+models and spur the development of new models. 
 
+Both frequentist and Bayesian inference paradigms
+can be used with probabilistic graphical models,
+and RevBayes allows for both maximum likelihood
+and Bayesian MCMC analyses.
+However, inferences in high-dimensionality
+parameter space are usually performed in a Bayesian framework,
+and directed graphical models are a convenient way
+to represent hierarchical Bayesian models.
+
+\section{Quick introduction to the Rev language}
+
+In RevBayes the \textbf{Rev} language is used to specify
+models.
+Like in R, the commands can either be typed directly into
+RevBayes interactively,
+or written in scripts that are then loaded.
+
+Start RevBayes by typing \texttt{rb} in the terminal window.
+The command prompt \texttt{>} will appear. Type
 \begin{verbatim}
-execute primates.nex
+5 + 5
+\end{verbatim}
+and hit enter. Now try
+\begin{verbatim}
+x = 5 + 5
+x
+\end{verbatim}
+If you want to load a Rev script from an external file type
+\begin{verbatim}
+source("my_script.rev")
+\end{verbatim}
+You'll get an error message because the file \texttt{my\_script.rev}
+doesn't exist.
+To quit RevBayes type \texttt{q()}.
+
+The Rev language is very similar to R, however an important 
+difference is the way variables are assigned.
+In R we can use either the \texttt{=} or \texttt{<-} symbols
+interchangeably.
+In Rev we use the assignment variable to describe
+what type of graphical model component the variable is.
+Graphical model variables come in three types:
+constant, stochastic, and deterministic.
+To declare constant variables (parameters
+that are fixed throughout the analysis) use
+\begin{verbatim}
+mu <- 5
+sigma <- 2
+\end{verbatim}
+Stochastic variables are variables that are modeled
+as drawn from a probability distribution. 
+These represent both the parameters we want to infer values for
+and the data. To define a stochastic variable:
+\begin{verbatim}
+length ~ dnNormal(mean=mu, sd=sigma)
+\end{verbatim}
+What is the value of \texttt{length}?
+\begin{verbatim}
+length
+\end{verbatim}
+Deterministic variables are simply transformations of other variables:
+\begin{verbatim}
+long_length := length * 10
+long_length
+\end{verbatim}
+If we draw a new value for \texttt{length}, \texttt{long\_length}
+will automatically be updated:
+\begin{verbatim}
+length ~ dnNormal(mean=mu, sd=sigma)
+long_length
+\end{verbatim}
+In Rev we use the plain old \texttt{=} sign 
+when defining variables that exist in the Rev workspace
+but are not components of the graphical model.
+
+\section{Simple non-phylogenetic example}
+
+Let's use Rev on a very trivial example to get started.
+We'll infer the mean height and standard deviation of a group of students.
+Clearly, we could analytically calculate the mean and SD, but we'll
+go totally overboard and
+set up a graphical probabilistic model and infer the parameters using MCMC.
+
+\subsection{Setting up the model}
+
+First, let's clear our workspace of all the variables we've been messing around with:
+\begin{verbatim}
+clear()
+\end{verbatim}
+Now enter our raw data (the observed heights), a constant vector of values (in feet):
+\begin{verbatim}
+data <- [5.5, 5.1, 6.0, 5.9, 6.2, 5.2, 6.1, 6.3]
+\end{verbatim}
+Let's get the number of students:
+\begin{verbatim}
+n <- data.size()
+\end{verbatim}
+The mean and SD are stochastic variables we want to infer.
+We will draw them from highly uninformative
+uniform priors:
+\begin{verbatim}
+mu ~ dnUniform(0, 10)
+sigma ~ dnUniform(0, 5)
+\end{verbatim}
+We will model our observed heights (the raw data)
+as being drawn from a normal distribution.
+To attach our observed data to the stochastic variable
+we \textbf{clamp} the observation to the variable.
+We'll do this in a loop for each observed height:
+\begin{verbatim}
+for (i in 1:n) {
+    heights[i] ~ dnNormal(mean=mu, sd=sigma)
+    heights[i].clamp(data[i])
+}
+\end{verbatim}
+Now we can finalize the model by saving it as a workspace variable:
+\begin{verbatim}
+mymodel = model(heights)
+\end{verbatim}
+If you type \texttt{mymodel} you will see
+output a lot of details about the model you have specified
+and how the nodes are all connected.
+To view details on a single node type
+\begin{verbatim}
+str(mu)
 \end{verbatim}
 
+\subsection{Performing an MCMC analysis}
+
+Now let's perform inference on our model.
+To use MCMC we have to declare the moves that the MCMC
+sampler will take to explore parameter space.
+There are many moves available in RevBayes,
+here will will just use a simple slide move.
+We will save our moves in a vector:
+\begin{verbatim}
+moves[1] = mvSlide(mu, delta=0.001)
+moves[2] = mvSlide(sigma, delta=0.001)
+\end{verbatim}
+To get details on what the \texttt{mvSlide}
+function does, type \texttt{?mvSlide}.
+Just like in R, you can type \texttt{?} to get info on any command.
+
+
+We will also need to set up some monitors for our MCMC analysis.
+The monitors will basically watch the MCMC and keep samples.
+We'll set up a log file for the entire model, and also a screen monitor
+so we can view progress on our screen:
+\begin{verbatim}
+monitors[1] = mnModel(filename="output/heights.log", printgen=10)
+monitors[2] = mnScreen(mu, sigma, printgen=10)
+\end{verbatim}
+Finally, let's setup our MCMC object and run it.
+For such a simple model 10000 iterations should be enough:
+\begin{verbatim}
+mymcmc = mcmc(mymodel, monitors, moves)
+mymcmc.run(generations=10000)
+\end{verbatim}
+After the run we can check to see how efficiently the MCMC explored parameter spacer
+by looking at the operator summary:
+\begin{verbatim}
+mymcmc.operatorSummary()
+\end{verbatim}
+This tells us how many moves were proposed and their acceptance rates.
 
 \begin{framed}
 \noindent
-\textbf{Question 4:} \\
-Open the summary tree in FigTree. Figure out how to add the 
-95\% HPD node age ranges as node bars to the tree. 
-Also add the posterior probabilities on the nodes of the tree.
-Send me a screen shot.
+\textbf{Exercise 1:} \\
+\begin{enumerate}
+\item Take a look at \texttt{heights.log} in Tracer.
+    Do the estimates of \texttt{mu} and \texttt{sigma} seem right?
+    Did they converge?
+\item What does the \texttt{delta} argument in the \texttt{mvSlide}
+      function do?
+\item Set \texttt{delta=1.0} for each of the moves, and rerun the analysis.
+      How do the estimates look now? Did they converge? What are your ESS
+      values for \texttt{mu} and \texttt{sigma}?
+\end{enumerate}
 \end{framed}
+
+There are many moves, distributions, and functions that you can use
+to build more complex models.
+You can see a list of all available commands by typing \texttt{ls(all=TRUE)}.
+
+\begin{framed}
+\noindent
+\textbf{Exercise 2:} \\
+In the model above we used highly uniformative uniform priors on
+\texttt{mu} and \texttt{sigma}.
+The average height in the United States is 5.4 feet and the SD is about 0.23.
+Modify the code above to use a more informative prior
+for \texttt{mu}. Don't just set
+    it to be constant, use a different prior distribution that is more informative
+    than the uniform prior.
+\begin{enumerate}
+    \item Rerun the analysis using the informative prior.
+        Show me the line of code you used to set an informative
+        prior for \texttt{mu}.
+    \item Did this affect the final estimates of \texttt{mu} and \texttt{sigma}?
+     Which estimate is closer to the actual mean?
+     What does this tell you about using informative priors?
+\end{enumerate}
+\end{framed}
+
+\section{Phylogenetic graphical models}
+
+Let's run an actual phylogenetic analysis now. 
+Though you can specify very complex phylogenetic models
+in RevBayes, we'll cover only the basics today:
+inferring trees using Jukes-Cantor and GTR.
+Much of this exercise comes from the excellent
+tutorials you can find at \url{http://www.revbayes.com}.
+
+\subsection{Loading the data}
+
+First clear the workspace again:
+\begin{verbatim}
+clear()
+\end{verbatim}
+Let's load an alignment of the cytochrome B gene for a number
+of primate species:
+\begin{verbatim}
+data <- readDiscreteCharacterData("data/primates_cytb.nex")
+\end{verbatim}
+Take a look at some information about the alignment:
+\begin{verbatim}
+data
+\end{verbatim}
+We'll need some useful information from the alignment:
+\begin{verbatim}
+n_species <- data.ntaxa()
+taxa <- data.taxa()
+n_branches <- 2 * n_species - 3
+\end{verbatim}
+Now we'll set up a counter for our \texttt{moves} vector:
+\begin{verbatim}
+mvi = 0
+\end{verbatim}
+
+\subsection{Juke-Cantor substitution model}
+
+Remember DNA substitution models are continuous-time Markov chains.
+Different models are defined by their instantaneous-rate matrix $Q$.
+DNA data has 4 discrete states, so we'll set up the $Q$ matrix like this:
+\begin{verbatim}
+Q <- fnJC(4)
+\end{verbatim}
+Check out the $Q$ matrix:
+\begin{verbatim}
+Q
+\end{verbatim}
+
+\subsection{Tree prior}
+
+Here we will use simple priors that are similar to the defaults
+used in a MrBayes analysis.
+We'll use a uniform tree prior that
+puts equal probability on all unrooted, fully resolved topologies.
+Remember, \texttt{topology} is simply a discrete random variable
+in our model.
+\begin{verbatim}
+topology ~ dnUniformTopology(taxa=taxa)
+\end{verbatim}
+Now we'll add MCMC moves for the topology.
+The tree rearrangement moves, nearest-neighbor interchange (NNI)
+and subtree pruning and regrafting (SPR) should be familiar to you:
+\begin{verbatim}
+moves[++mvi] = mvNNI(topology, weight=3.0)
+moves[++mvi] = mvSPR(topology, weight=3.0)
+\end{verbatim}
+The weight specifies how often the move will be proposed relative to all
+other moves.
+
+Now create a vector of branch lengths. We'll draw each
+branch length from an exponential distribution.
+For a long time this was the default branch length prior in MrBayes
+(but see \citet{rannala2012tail} for why the default is now
+compound Dirichlet priors).
+We'll also add scaling moves for each branch length.
+\begin{verbatim}
+for (i in 1:n_branches) {
+    br_lens[i] ~ dnExponential(10.0)
+    moves[++mvi] = mvScale(br_lens[i])
+}
+\end{verbatim}
+Simply for convenience, let's add a deterministic node to monitor tree length:
+\begin{verbatim}
+TL := sum(br_lens)
+\end{verbatim}
+Finally, we combine the topology and the branch length vector into a deterministic node
+that represents our phylogeny:
+\begin{verbatim}
+phylogeny := treeAssembly(topology, br_lens)
+\end{verbatim}
+
+
+\subsection{Phylogenetic continuous-time Markov chain model}
+
+Our sequence evolution model is a continuous-time Markov chain (CTMC) over
+a phylogeny. So we pass the Jukes-Cantor rate matrix \texttt{Q}
+and the \texttt{phylogeny} into the phylogenetic CTMC distribution:
+\begin{verbatim}
+seq ~ dnPhyloCTMC(tree=phylogeny, Q=Q, type="DNA")
+\end{verbatim}
+And now we clamp our sequence data to the CTMC:
+\begin{verbatim}
+seq.clamp(data)
+\end{verbatim}
+We have fully defined our model, so now we wrap it up and declare it complete:
+\begin{verbatim}
+mymodel = model(seq)
+\end{verbatim}
+I passed \texttt{seq} to the \texttt{model} function, 
+but any node in the model could have been used.
+
+\subsection{Running the MCMC analysis}
+
+We need some monitors:
+\begin{verbatim}
+monitors[1] = mnModel(filename="output/primates_JC.log", printgen=10)
+monitors[2] = mnFile(filename="output/primates_JC.trees", printgen=10, phylogeny)
+monitors[3] = mnScreen(printgen=100, TL)
+\end{verbatim}
+Note the file monitor (\texttt{monitors[2]}) saves all the sampled
+trees into a single file.
+Set up the MCMC and run it:
+\begin{verbatim}
+mymcmc = mcmc(mymodel, monitors, moves)
+mymcmc.run(generations=30000)
+\end{verbatim}
+Now, we will analyze the tree sampled by the MCMC.
+Read in the tree trace:
+\begin{verbatim}
+treetrace = readTreeTrace("output/primates_JC.trees", treetype="non-clock")
+\end{verbatim}
+and let's summarize the trees into a single
+maximum a posteriori (MAP) tree:
+\begin{verbatim}
+map_tree = mapTree(treetrace,"output/primates_JC_MAP.tree")
+\end{verbatim}
+Open up the tree in FigTree and view the posterior probabilities
+for each clade. You should reroot the tree on the branch
+    subtending the \textit{Alouatta palliata} /
+    \textit{Pan paniscus} clade.
+
+\begin{framed}
+\noindent
+\textbf{Exercise 3:} \\
+\begin{enumerate}
+\item In a text editor, modify the code above to use the GTR model
+    instead of Jukes-Cantor. I describe how to set up the GTR model below.
+    Save the script in a file called \texttt{primates\_GTR.Rev}.
+    Send me a copy of your working script.
+\item Run your script by calling \texttt{source("primates\_GTR.Rev")}
+      in RevBayes. Open the final MAP tree and properly reroot it.
+      Do the posterior probabilities, topology, and/or branch lengths
+      differ from the Jukes-Cantor tree?
+\item Send me both of your MAP tree files.
+\end{enumerate}
+\end{framed}
+
+\subsection{The GTR model}
+
+We've discussed the General Time Reversible (GTR)
+substitution model before, which allows 
+all four stationary frequencies and all six exchangeability rates to differ.
+
+To use the GTR model, we define a variable \texttt{pi} for the stationary
+frequencies that are drawn from a flat, uninformative Dirichlet distribution:
+\begin{verbatim}
+pi_prior <- v(1,1,1,1)
+pi ~ dnDirichlet(pi_prior)
+\end{verbatim}
+Since \texttt{pi} is a stochastic variable that we want to estimate,
+we need to set up a MCMC move for it:
+\begin{verbatim}
+moves[++mvi] = mvSimplexElementScale(pi)
+\end{verbatim}
+The \texttt{mvSimplexElementScale} randomly changes one element of the simplex
+and then rescales the other elements so that they sum to 1 again.
+
+We will also use an uninformative Dirichlet distribution on the 
+six exchangeability rates:
+\begin{verbatim}
+er_prior <- v(1,1,1,1,1,1)
+er ~ dnDirichlet(er_prior)
+moves[++mvi] = mvSimplexElementScale(er)
+\end{verbatim}
+Finally, we'll pass the exchangeability rates and the stationary frequencies
+into a function to create the rate matrix \texttt{Q}:
+\begin{verbatim}
+Q := fnGTR(er,pi)
+\end{verbatim}
 
 \begin{framed}
 \noindent
 \textbf{Please email me the following:}
 \begin{enumerate}
-  \item The answers to questions 1-4.
-  \item Screenshots for questions 2 and 4.
+  \item The answers to exercises 1-3.
+  \item Your \texttt{primates\_GTR.Rev} script.
+  \item Your Jukes-Cantor and GTR MAP trees.
 \end{enumerate}
 \end{framed}
 
