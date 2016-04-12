@@ -2,6 +2,29 @@
 
 \usepackage{filecontents}
 \begin{filecontents}{\jobname.bib}
+@article{landis2015biogeographic,
+  title={Biogeographic dating of speciation times using paleogeographically informed processes},
+  author={Landis, Michael J},
+  journal={bioRxiv},
+  pages={028738},
+  year={2015},
+  publisher={Cold Spring Harbor Labs Journals}
+}
+@article{landis2013bayesian,
+  title={Bayesian analysis of biogeography when the number of areas is large},
+  author={Landis, Michael J and Matzke, Nicholas J and Moore, Brian R and Huelsenbeck, John P},
+  journal={Systematic biology},
+  pages={syt040},
+  year={2013},
+  publisher={Oxford University Press}
+}
+@article{matzke2013biogeobears,
+  title={BioGeoBEARS: biogeography with Bayesian (and likelihood) evolutionary analysis in R scripts},
+  author={Matzke, Nicholas J},
+  journal={R package, version 0.2},
+  volume={1},
+  year={2013}
+}
 @article{hohna2014probabilistic,
   title={Probabilistic graphical model representation in phylogenetics},
   author={H{\"o}hna, Sebastian and Heath, Tracy A and Boussau, Bastien and Landis, Michael J and Ronquist, Fredrik and Huelsenbeck, John P},
@@ -30,6 +53,16 @@
   number={1},
   pages={4--14},
   year={2008},
+  publisher={Oxford University Press}
+}
+@article{matzke2014model,
+  title={Model selection in historical biogeography reveals that founder-event speciation is a crucial process in island clades},
+  author={Matzke, Nicholas J},
+  journal={Systematic Biology},
+  volume={63},
+  number={6},
+  pages={951--970},
+  year={2014},
   publisher={Oxford University Press}
 }
 \end{filecontents}
@@ -97,7 +130,7 @@ Geographic Range Evolution \\
 Today's lab will be completed in R.
 Please install R: \url{https://www.r-project.org/}
 
-We'll be using the excellent R package \textbf{BioGeoBears}
+We'll be using the excellent R package \textbf{BioGeoBears} \citep{matzke2013biogeobears}
 which was developed by Nick Matkze, who was a GSI of this course!
 His website (and the source of the example script we'll use)
 is here:
@@ -121,7 +154,8 @@ a model that allows for only vicariance.
 There are many parsimony based approaches for
 studying biogeography that will be covered in lecture.
 The first likelihood approaches to biogeography
-were presented in the ground breaking \citet{ree2008maximum}.
+were presented in the ground breaking \citet{ree2008maximum},
+which introduced the Dispersal-Extinction-Cladogenesis (DEC) model.
 We'll discuss these probabilistic models and their many
 extensions in lecture (also see Figure 1 for a summary),
 so here we'll focus on applying them
@@ -140,15 +174,15 @@ Text and image from \protect\url{http://phylo.wikidot.com/biogeobears\#BioGeoBEA
 \end{figure}
 
 
-\section{Installing BioGeoBears}
+\section{Using BioGeoBears with the DEC and DEC+J models}
 
 We will use BioGeoBears to implement the
-2-parameter Dispersal-Extinction-Cladogeneis (DEC) 
+2-parameter Dispersal-Extinction-Cladogenesis (DEC) 
 model from \citet{ree2008maximum}
 as well as the DEC+J model that includes
 a long distance dispersal 
 (jump or founder event speciation)
-parameter.
+parameter and was described in \citet{matzke2014model}.
 See Figure 1 for details on the different models.
 We'll use the Likelihood Ratio Test (LRT) and
 Akaike information criterion (AIC)
@@ -198,7 +232,7 @@ source("http://phylo.wdfiles.com/local--files/biogeobears/get_stratified_subbran
 source("http://phylo.wdfiles.com/local--files/biogeobears/runBSM_v1.R")
 source("http://phylo.wdfiles.com/local--files/biogeobears/stochastic_map_given_inputs.R")
 source("http://phylo.wdfiles.com/local--files/biogeobears/summarize_BSM_tables_v1.R")
-source("http://phylo.wdfiles.com/local--files/biogeobears/BioGeoBEARS_traits_v1.R") # added traits model
+source("http://phylo.wdfiles.com/local--files/biogeobears/BioGeoBEARS_traits_v1.R")
 calc_loglike_sp = compiler::cmpfun(calc_loglike_sp_prebyte)
 calc_independent_likelihoods_on_each_branch = compiler::cmpfun(calc_independent_likelihoods_on_each_branch_prebyte)
 \end{code}
@@ -379,7 +413,7 @@ the ancestral state reconstructions.
 pdffn = "Psychotria_DEC_vs_DEC+J.pdf"
 pdf(pdffn, width=6, height=6)
 \end{code}
-Plot the DEC ancestral states:
+Plot the DEC ancestral states. These plots will be written to a PDF file.
 \begin{code}
 analysis_titletxt = "DEC on Psychotria"
 results_object = results_DEC
@@ -391,7 +425,7 @@ plot_BioGeoBEARS_results(results_object, analysis_titletxt, addl_params=list("j"
             label.offset=0.45, tipcex=0.7, statecex=0.7, splitcex=0.6, titlecex=0.8, plotsplits=TRUE, 
             cornercoords_loc=scriptdir, include_null_range=TRUE, tr=tr, tipranges=tipranges)
 \end{code}
-Plot the DEC+J ancestral states:
+Plot the DEC+J ancestral states to the PDF file.
 \begin{code}
 analysis_titletxt ="DEC+J on Psychotria"
 results_object = results_DECJ
@@ -403,7 +437,7 @@ plot_BioGeoBEARS_results(results_object, analysis_titletxt, addl_params=list("j"
             label.offset=0.45, tipcex=0.7, statecex=0.7, splitcex=0.6, titlecex=0.8, plotsplits=TRUE, 
             cornercoords_loc=scriptdir, include_null_range=TRUE, tr=tr, tipranges=tipranges)
 \end{code}
-Make a PDF file. We'll see each model's ancestral
+And finally let's check out our PDF file. We'll see each model's ancestral
 state reconstructions plotted twice: 1) with the
 the maximum likelihood estimate of the ancestral ranges, and
 2) with pie charts at each node that show the probability
@@ -453,9 +487,42 @@ stats$pval
 \begin{framed}
 \noindent
 \textbf{Question 4:} \\
-Which model does the AIC support?
-What about the LRT?
+\begin{enumerate}
+\item Which model does the AIC support?
+        What about the LRT?
+\item These models incorporate cladogenetic evolutionary events, 
+        where evolutionary change occurs at speciation events.
+        However, in our reconstructed phylogenies we usually only consider
+        the speciation events that led to the extant taxa.
+        How might unobserved speciation events (lineages that went extinct)
+        affect our inferences?
+\end{enumerate}
 \end{framed}
+
+\section{More complex models and Bayesian approaches}
+
+BioGeoBears can test many other models besides DEC and DEC+J,
+enabling other biogeographic scenarios to be tested.
+For example, the effect of distance on dispersal events between areas 
+can be modeled using the $x$ parameter, 
+which allows us to model a lower probability of dispersal to distant regions.
+BioGeoBears can also use time stratified models, in which 
+different areas are available to be inhabited at different points
+in time over the phylogeny.
+With my PI Bruce Baldwin, we used this approach 
+to reconstruct the colonization of the Hawaiian islands
+from California
+of the Silversword alliance (an adaptive radiation in the Asteraceae)
+given the different emergence times of the Hawaiian islands.
+
+Another previous GSI of our class, Michael Landis,
+has pioneered Bayesian approaches to biogeographic modeling,
+both in his software BayArea \citep{landis2013bayesian}
+and RevBayes \citep{hohna2014probabilistic}.
+Nearly all the models described above have been implemented in RevBayes.
+Furthermore, Michael has extended biogeographic models to use paleogeographic dates
+to help calibrate speciation times, allowing for simultaneous inference
+of ancestral geographic ranges and divergence times \citep{landis2015biogeographic}.
 
 \begin{framed}
 \noindent
