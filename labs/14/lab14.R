@@ -8,6 +8,16 @@
 #
 ##############################################################
 
+# Today's lab will cover spatial and community phylogenetics. These two approaches to phylogenetics
+# are highly related but applied differently. Community phylogenetics incorporates phylogenetic
+# structure into community ecology, and tries to understand how specific ecological communities 
+# are assembled. Spatial phylogenetics operates at the landscape level, incorporating spatial data 
+# to view patterns of phylogenetic diversity and endemism across large landscapes.
+
+# For spatial phylogenetics, Andrew Thornhill will walk us through a demo of the software Biodiverse. 
+# Then we'll use the R package picante to calculate community phylogenetic statistics and visualize
+# the results on the phylogeny.
+
 
 # Download the two files from the website for today 'oakphylo.txt' and 'oaksample.txt':
 # http://ib.berkeley.edu/courses/ib200/labs/14/oakphylo.txt
@@ -20,7 +30,7 @@ list.files()
 # install.packages("picante")
 library(picante)
 
-# Today's lab we will utilize the picante package of R to calculate community phylogenetic statistics, and visualize the results on the phylogeny. This package has many of the operations found in the program phylocom available from: www.phylodiversity.net/phylocom.  The two statistics we will focus on are NRI and NTI, defined in lecture.  There are many other functions in the picante package for phylogenetic analysis of community ecology.  If you are interested in these types of analyses then I would suggest that you read over the picante manual.
+# The package picante has many of the operations found in the program phylocom available from: www.phylodiversity.net/phylocom.  The two statistics we will focus on are NRI and NTI, defined in lecture.  There are many other functions in the picante package for phylogenetic analysis of community ecology.  If you are interested in these types of analyses then I would suggest that you read over the picante manual.
 
 #We will use some of the data that is already found in the picante package. 
 data(phylocom)
