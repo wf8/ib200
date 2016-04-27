@@ -20,10 +20,10 @@
 
 
 # Download the two files from the website for today 'oakphylo.txt' and 'oaksample.txt':
-# http://ib.berkeley.edu/courses/ib200/labs/14/oakphylo.txt
+# http://ib.berkeley.edu/courses/ib200/labs/14/oakphylo.tre
 # http://ib.berkeley.edu/courses/ib200/labs/14/oaksample.txt
 
-# list the files in the directory. Make sure 'oakphylo.txt' and 'oaksample.txt' are in your working directory.  
+# list the files in the directory. Make sure 'oakphylo.tre' and 'oaksample.txt' are in your working directory.  
 list.files()
 
 # You need the PICANTE R package
@@ -145,15 +145,15 @@ multiPhylosignal(traits, phy)
 #  Reading Oak Data
 #################################################################################
 #
-# Open the file named 'oakphylo' in a text editor. This is the default name for the phylogeny read in by phylocom, and it is a simple newick string (with or without branch lengths).  To open it in R drag the file onto the terminal and edit around the file name to use the ape function read.tree.
+# Open the file named 'oakphylo.tre' in a text editor. This is a simple newick string, so we can read it into R using the ape function read.tree:
 
-tree.oak <- read.tree('oakphylo.txt')
-plot(tree.oak)
+tree_oak <- read.tree('oakphylo.tre')
+plot(tree_oak)
 
 # Why does that look so small and sad?  Oh right...
 
 par(mfrow = c(1, 1))
-plot(tree.oak)
+plot(tree_oak)
 
 # Open the 'oaksample' file in a texteditor as well to examine the format of the file. This is the format to input species lists for individual communities.  As you can see the first column is the community the second column is the abundance and the third column is the taxon.  Let's read this file into R and display the sample matrix:
 
@@ -161,10 +161,10 @@ sample_oak <- read.table('oaksample.txt')
 sample_oak <- sample2matrix(sample_oak)
 sample_oak
 
-# QUESTION 5:  Plot each community on the tree.  Calculate NRI and NTI for each community.  Compare results to Fig. 4 from Cavender-Bares et al. 2004 (see lecture handout from 4/15 top of page 7). Do they tell the same story? Explain.
+# QUESTION 5:  Plot each community on the tree.  Calculate NRI and NTI for each community.  Which community shows the highest amount of phylogenetic clustering? Phylogenetic overdispersion?
 
 ################################################################################
 #
-# Please email me the answers to questions 1 - 5.
+# Please email me the answers to questions 1 - 5, and send me your plots for the 4 communities on the tree.
 #
 ################################################################################
