@@ -161,7 +161,10 @@ sample_oak <- read.table('oaksample.txt')
 sample_oak <- sample2matrix(sample_oak)
 sample_oak
 
-# QUESTION 5:  Plot each community on the tree.  Calculate NRI and NTI for each community.  Compare results to Fig. 4 from Cavender-Bares et al. 2004 (see lecture handout). Do they tell the same story? Explain. **HINT** You can just use the R script from above and substitute the oak files to get at these questions, which is good practice for what you might be doing in your final projects.  As always, please ask if you run into any difficulties.
+# QUESTION 5:  Plot each community on the tree.  Calculate NRI and NTI for each community.  Compare results to Fig. 4 from Cavender-Bares et al. 2004 (see lecture handout from 4/15 top of page 7). Do they tell the same story? Explain.
+
+################################################################################
 #
+# Please email me the answers to questions 1 - 5.
 #
-#
+################################################################################
