@@ -1,0 +1,80 @@
+locus_names = ["COIII", "FGA", "GHRmeredith", "lrpprc_169",
+"npas3", "sim1", "tex2", "ttr", "zfy", "zic3"]
+num_loci = locus_names.size()
+for ( i in 1:num_loci ) {
+data[i] <- readDiscreteCharacterData("data/" + locus_names[i] + ".fasta")
+}
+n_species <- data[10].ntaxa()
+taxa <- data[10].taxa()
+n_branches <- 2 * n_species - 1
+mi = 0
+speciation ~ dnGamma(2,2)
+relativeExtinction ~ dnBeta(1,1)
+extinction := speciation * relativeExtinction
+sampling_fraction <- 23 / 450
+root ~ dnNormal(mean=75,sd=2.5,min=0.0, max=Inf)
+psi ~ dnBDP(lambda=speciation, mu=extinction, rootAge=root, rho=sampling_fraction, taxa=taxa)
+moves[++mi] = mvSlide(speciation,delta=1,tune=true,weight=2)
+moves[++mi] = mvSlide(relativeExtinction,delta=1,tune=true,weight=2)
+moves[++mi] = mvScale(speciation,lambda=1,tune=true,weight=2)
+moves[++mi] = mvScale(relativeExtinction,lambda=1,tune=true,weight=2)
+moves[++mi] = mvSlide(root,delta=1,tune=true,weight=0.2)
+moves[++mi] = mvNarrow(psi, weight=5.0)
+moves[++mi] = mvNNI(psi, weight=1.0)
+moves[++mi] = mvFNPR(psi, weight=3.0)
+moves[++mi] = mvGPR(psi, weight=3.0)
+moves[++mi] = mvSubtreeScale(psi, weight=3.0)
+moves[++mi] = mvNodeTimeSlideUniform(psi, weight=15.0)
+moves[++mi] = mvTreeNodeAgeSlide(psi, weight=100)
+Ne <- 1000
+for (i in 1:num_loci) {
+taxon_map = readTaxonData("data/species_maps/primates_" + locus_names[i] +
+"_species_map.txt")
+geneTree[i] ~ dnMultiSpeciesCoalescent(speciesTree=psi, Ne=Ne, taxa=taxon_map)
+}
+move_species_narrow_exchange = mvSpeciesNarrow( speciesTree=psi, weight=5 )
+for (i in 1:num_loci) {
+moves[++mi] = mvNNI(geneTree[i], 5.0)
+moves[++mi] = mvNarrow(geneTree[i], 5.0)
+moves[++mi] = mvFNPR(geneTree[i], 3.0)
+moves[++mi] = mvGPR(geneTree[i], 2.0)
+moves[++mi] = mvSubtreeScale(geneTree[i], 5.0)
+moves[++mi] = mvTreeScale(geneTree[i], 1.0, true, 3.0)
+moves[++mi] = mvNodeTimeSlideUniform(geneTree[i], 20.0)
+move_species_narrow_exchange.addGeneTreeVariable( geneTree[i] )
+}
+moves[++mi] = move_species_narrow_exchange
+for ( i in 1:num_loci ) {
+clock_rate[i] ~ dnExponential(1.0)
+moves[++mi] = mvScale(clock_rate[i], weight=1.0)
+}
+for ( i in 1:num_loci ) {
+kappa[i] ~ dnLognormal(0,1)
+pi_prior[i] <- v(1,1,1,1)
+pi[i] ~ dnDirichlet(pi_prior[i])
+Q[i] := fnHKY(kappa[i],pi[i])
+}
+for ( i in 1:num_loci ) {
+alpha_prior[i] <- 0.05
+alpha[i] ~ dnExponential( alpha_prior[i] )
+gamma_rates[i] := fnDiscretizeGamma( alpha[i], alpha[i], 4, false )
+}
+for ( i in 1:num_loci ) {
+moves[++mi] = mvScale(kappa[i],weight=1)
+moves[++mi] = mvSimplexElementScale(pi[i],weight=2)
+moves[++mi] = mvScale(alpha[i],weight=2)
+}
+for ( i in 1:num_loci ) {
+seq[i] ~ dnPhyloCTMC(tree=geneTree[i], Q=Q[i], branchRates=clock_rate[i], siteRates=gamma_rates[i], type="DNA")
+seq[i].clamp(data[i])
+}
+mymodel = model(psi)
+monitors[1] = mnScreen(printgen=10, root)
+monitors[2] = mnModel(filename="output/primates_root_calibration.log", printgen=10)
+monitors[3] = mnFile(filename="output/primates_root_calibration.trees", printgen=10, psi)
+for ( i in 1:num_loci ) {
+monitors[i+3] = mnFile(filename="output/primates_root_calibration_" + locus_names[i] +
+".trees", printgen=10, geneTree[i])
+}
+mymcmc = mcmc(mymodel, monitors, moves)
+mymcmc.run(generations=1000)
